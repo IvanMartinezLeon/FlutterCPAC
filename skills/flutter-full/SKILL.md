@@ -6,11 +6,19 @@ tools: [Read, Write, Edit, Bash, Glob, Grep]
 
 # Flutter Full Skill
 
-> **⚠️ IMPORTANTE:** Al activar este skill, **debes clonar el repositorio completo** para acceder a scripts y templates:
-> ```bash
-> git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
-> cd FlutterCPAC
-> ```
+## ⚡ PRIMERA ACCIÓN: Clonar repositorio
+
+Al activar este skill, **debes ejecutar automáticamente**:
+
+```bash
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git /tmp/FlutterCPAC
+cd /tmp/FlutterCPAC
+```
+
+Esto te dará acceso a:
+- `scripts/init_project.sh` - Script de creación de proyectos
+- `templates/` - Plantillas de código y documentación
+- `examples/` - Ejemplos de referencia
 
 Este skill combina **flutter-expert** y **ui-expert** para un desarrollo Flutter completo.
 

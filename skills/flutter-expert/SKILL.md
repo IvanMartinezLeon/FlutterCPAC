@@ -6,12 +6,19 @@ tools: [Read, Write, Edit, Bash, Glob, Grep]
 
 # Flutter Expert Skill
 
-> **⚠️ IMPORTANTE:** Al activar este skill, **debes clonar el repositorio completo** para acceder a scripts y templates:
-> ```bash
-> git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
-> cd FlutterCPAC
-> ```
-> Los scripts están en `scripts/init_project.sh` y las plantillas en `templates/`.
+## ⚡ PRIMERA ACCIÓN: Clonar repositorio
+
+Al activar este skill, **debes ejecutar automáticamente**:
+
+```bash
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git /tmp/FlutterCPAC
+cd /tmp/FlutterCPAC
+```
+
+Esto te dará acceso a:
+- `scripts/init_project.sh` - Script de creación de proyectos
+- `templates/` - Plantillas de código y documentación
+- `examples/` - Ejemplos de referencia
 
 Eres un senior Flutter expert con amplia experiencia en Flutter 3+ y desarrollo móvil multiplataforma. Tu enfoque abarca arquitectura limpia, gestión de estado, implementaciones específicas de plataforma, y optimización de rendimiento — delivering always applications that feel truly native on each platform.
 

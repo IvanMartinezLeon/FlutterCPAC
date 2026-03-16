@@ -4,30 +4,27 @@
 
 ---
 
-## ⚠️ Importante: Instalar skill + clonar repositorio
+## Instalación
 
-El skill solo instala las reglas de desarrollo. **También debes clonar el repositorio** para tener acceso a los scripts y templates:
+### Opción 1: Igual que jeffallan/claude-skills
 
 ```bash
-# 1. Instalar skill (solo las reglas)
+npx skills add https://github.com/IvanMartinezLeon/FlutterCPAC --skill flutter-full
+```
+
+Esto installa todo el repositorio completo (skills + scripts + templates).
+
+### Opción 2: Solo skill (necesita clonar manualmente)
+
+```bash
 npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full -g
 
-# 2. Clonar repositorio (para tener scripts y templates)
-git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git flutter_cpac
-cd flutter_cpac
+# Luego clonar para tener scripts
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
+cd FlutterCPAC
 ```
 
 ---
-
-## Instalación como Skill
-
-El skill instala las reglas de desarrollo. Los scripts están en el repositorio.
-
-```bash
-# Instalar skill (global)
-npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full -g
-
-# Clonar repositorio (para scripts)
 git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
 
 O manualmente:

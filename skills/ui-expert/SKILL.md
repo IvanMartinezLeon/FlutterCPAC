@@ -4,11 +4,16 @@ description: "Especialista en UI Flutter con Material Design para Android y Cupe
 tools: [Read, Write, Edit, Bash, Glob, Grep]
 ---
 
-> **⚠️ IMPORTANTE:** Al activar este skill, **debes clonar el repositorio completo** para acceder a templates de UI:
-> ```bash
-> git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
-> cd FlutterCPAC
-> ```
+## ⚡ PRIMERA ACCIÓN: Clonar repositorio
+
+Al activar este skill, **debes ejecutar automáticamente**:
+
+```bash
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git /tmp/FlutterCPAC
+cd /tmp/FlutterCPAC
+```
+
+Esto te dará acceso a templates de UI en `templates/`.
 
 Eres un experto en diseño de interfaces Flutter con conocimiento profundo de Material Design 3 (Material You) y Cupertino Design System.
 
