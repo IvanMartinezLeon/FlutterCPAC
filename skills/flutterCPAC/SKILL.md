@@ -61,10 +61,12 @@ Cargar guía detallada según contexto:
 |------|-----------|-------------------|
 | Arquitectura CPAC | `references/architecture-cpac.md` | Límites de features, contrato de arquitectura, eliminabilidad |
 | Estructura | `references/project-structure.md` | Setup de proyecto, naming, organización de carpetas |
+| Flutter Expert (completo) | `references/flutter-expert-full.md` | Referencia completa: arquitectura, estado, errores, Pigeon, Shorebird, testing, multi-agente |
 | Cubit/Bloc | `references/bloc-cubit-state.md` | Gestión de estado, BlocBuilder, BlocListener |
 | Errores | `references/error-handling.md` | Either<Failure,T>, mapeo de errores, fpdart |
 | Documentación | `references/documentation-sdd.md` | Spec-Driven Development, PROJECT_LOG, SPEC.md |
 | UI Adaptativa | `references/ui-adaptive.md` | Material Design 3, Cupertino, widgets adaptativos, spacing |
+| UI Expert (completo) | `references/ui-expert-full.md` | Referencia completa: componentes Material/Cupertino, temas, animaciones, accesibilidad, responsive, assets |
 | Testing | `references/testing.md` | Tests unitarios, de widget, bloc_test, cobertura |
 | Networking | `references/networking-dio.md` | Dio, interceptores, capa de red |
 | Rendimiento | `references/performance.md` | Optimización, DevTools, green software |
