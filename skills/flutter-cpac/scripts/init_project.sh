@@ -337,7 +337,7 @@ Para continuar con la configuración avanzada, ejecutar:
 
 \`\`\`bash
 # Instalar skill de Flutter (para que la IA conozca las reglas)
-npx skills add IvanMartinezLeon/FlutterCPAC@flutterCPAC -g
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-cpac -g
 
 # O configurar manualmente con tu IDE/IA
 \`\`\`
@@ -367,7 +367,7 @@ if [ "$MODE" == "with-ai" ]; then
     echo -e "${BLUE}┌────────────────────────────────────────────────────────┐${NC}"
     echo -e "${BLUE}│ 1. Instala el skill (si no lo has hecho):             │${NC}"
     echo -e "${BLUE}│                                                    │${NC}"
-    echo -e "${BLUE}│    npx skills add IvanMartinezLeon/FlutterCPAC@flutterCPAC -g   │${NC}"
+    echo -e "${BLUE}│    npx skills add IvanMartinezLeon/FlutterCPAC@flutter-cpac -g   │${NC}"
     echo -e "${BLUE}│                                                    │${NC}"
     echo -e "${BLUE}│ 2. Pide a tu IA que configure el gestor de estado   │${NC}"
     echo -e "${BLUE}│                                                    │${NC}"

@@ -6,74 +6,22 @@
 
 ## Instalación
 
-### Opción 1: Igual que jeffallan/claude-skills
-
 ```bash
-npx skills add https://github.com/IvanMartinezLeon/FlutterCPAC --skill flutterCPAC
+npx skills add https://github.com/IvanMartinezLeon/FlutterCPAC --skill flutter-cpac
 ```
 
-Esto installa todo el repositorio completo (skills + scripts + templates).
-
-### Opción 2: Solo skill (necesita clonar manualmente)
-
-```bash
-npx skills add IvanMartinezLeon/FlutterCPAC@flutterCPAC -g
-
-# Luego clonar para tener scripts
-git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
-cd FlutterCPAC
-```
-
----
-git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
-
-O manualmente:
-
-```bash
-# Crear directorio de skills
-mkdir -p ~/.agents/skills
-
-# Skill completo (arquitectura + UI)
-curl -o ~/.agents/skills/flutterCPAC/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/skills/flutterCPAC.md
-
-# O individualmente
-curl -o ~/.agents/skills/flutter-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/skills/flutter-expert.md
-curl -o ~/.agents/skills/ui-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/skills/ui-expert.md
-```
-
-**Skills disponibles:**
-- `flutterCPAC` ⭐ - Completo (arquitectura CPAC + UI adaptativa)
-- `flutter-expert` - Solo arquitectura y lógica
-- `ui-expert` - Solo diseño UI (Material/Cupertino)
-
-### Global vs Por Proyecto
-
-```bash
-# GLOBAL (recomendado): Disponible para todos los proyectos
-npx skills add IvanMartinezLeon/FlutterCPAC@flutterCPAC -g
-
-# POR PROYECTO: Solo ese proyecto tendrá el skill
-cd mi_proyecto
-npx skills add IvanMartinezLeon/FlutterCPAC@flutterCPAC
-```
-
-| Instalación | Ubicación | Cuándo usarlo |
+Esto instala el repositorio completo (skills + scripts + templates).
 |-------------|-----------|---------------|
 | Global (`-g`) | `~/.agents/skills/` | Siempres usas las mismas reglas |
 | Por proyecto | `./.agents/skills/` | Equipos con reglas diferentes por proyecto |
 
-## 🚀 Instalación + Crear Proyecto
-
-Puedes instalar el skill y crear un proyecto Flutter en un solo comando:
+## 🚀 Crear un proyecto Flutter
 
 ```bash
-# Instalar skill global + crear proyecto
-npx skills add IvanMartinezLeon/FlutterCPAC@flutterCPAC -g && git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git mi_proyecto && cd mi_proyecto && bash scripts/init_project.sh
+# 1. Instalar skill
+npx skills add https://github.com/IvanMartinezLeon/FlutterCPAC --skill flutter-cpac
 
-# O en dos pasos: primero clonar, luego skill + script
-git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git mi_proyecto
-cd mi_proyecto
-npx skills add IvanMartinezLeon/FlutterCPAC@flutterCPAC
+# 2. Ejecutar script de creación
 bash scripts/init_project.sh
 ```
 
