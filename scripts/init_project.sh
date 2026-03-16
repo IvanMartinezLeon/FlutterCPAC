@@ -113,8 +113,19 @@ echo -e "\n${GREEN}✓${NC} Configuración: $APP_NAME | $BUNDLE_ID | $STATE_MANA
 # =============================================================================
 echo -e "\n${YELLOW}🛠️  Creando proyecto Flutter...${NC}"
 
-# Verificar si ya estamos en una carpeta de proyecto
-if [ ! -f "pubspec.yaml" ]; then
+CURRENT_DIR=$(basename "$PWD")
+
+# Verificar si ya estamos en una carpeta de proyecto con el mismo nombre
+if [ -f "pubspec.yaml" ]; then
+    echo -e "${GREEN}✓${NC} Proyecto ya existe, continuando..."
+elif [ "$CURRENT_DIR" = "$APP_NAME" ]; then
+    # La carpeta ya se llama igual que la app
+    flutter create --org "$BUNDLE_ID" .
+elif [ -z "$(ls -A)" ]; then
+    # Carpeta vacía
+    flutter create --org "$BUNDLE_ID" .
+else
+    # Carpeta con contenido pero diferente nombre
     flutter create --org "$BUNDLE_ID" "$APP_NAME"
     cd "$APP_NAME" 2>/dev/null || true
 fi
