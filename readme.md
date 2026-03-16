@@ -50,6 +50,26 @@ npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full
 | Global (`-g`) | `~/.agents/skills/` | Siempres usas las mismas reglas |
 | Por proyecto | `./.agents/skills/` | Equipos con reglas diferentes por proyecto |
 
+## 🚀 Instalación + Crear Proyecto
+
+Puedes instalar el skill y crear un proyecto Flutter en un solo comando:
+
+```bash
+# Instalar skill global + crear proyecto
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full -g && git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git mi_proyecto && cd mi_proyecto && bash scripts/init_project.sh
+
+# O en dos pasos: primero clonar, luego skill + script
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git mi_proyecto
+cd mi_proyecto
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full
+bash scripts/init_project.sh
+```
+
+El script te guiará para configurar tu proyecto con:
+- Multi-entorno (debug, profile, release)
+- Internacionalización (ES/EN)
+- Tu gestor de estado favorito
+
 **Repositorio:** https://github.com/IvanMartinezLeon/FlutterCPAC
 
 ---
