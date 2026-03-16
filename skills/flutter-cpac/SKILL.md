@@ -20,9 +20,22 @@ cd /tmp/FlutterCPAC
 ```
 
 Esto te dará acceso a:
-- `scripts/init_project.sh` - Script de creación de proyectos
-- `templates/` - Plantillas de documentación
-- `examples/` - Ejemplos de referencia
+- `skills/flutter-cpac/references/createproject.md` - Workflow completo para crear proyectos
+- `skills/flutter-cpac/scripts/init_project.sh` - Script de creación de proyectos
+- `skills/flutter-cpac/templates/` - Plantillas de documentación
+- `skills/flutter-cpac/examples/` - Ejemplos de referencia
+
+---
+
+## 🚀 Crear un Proyecto Flutter
+
+Cuando el usuario pida crear una aplicación Flutter, **debes seguir** `skills/flutter-cpac/references/createproject.md`.
+
+El proceso es:
+1. Leer `skills/flutter-cpac/references/createproject.md` completo
+2. Solicitar al usuario los datos: nombre de app, bundle ID, gestor de estado
+3. Ejecutar el workflow descrito en el documento
+4. Verificar con `flutter analyze` que no haya errores
 - `references/` - Material de deep-dive por tema
 
 ---
