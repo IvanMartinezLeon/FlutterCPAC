@@ -18,12 +18,17 @@ Esto instala el repositorio completo (skills + scripts + templates).
 ## 🚀 Crear un proyecto Flutter
 
 ```bash
-# 1. Instalar skill
+# 安装 skill
 npx skills add https://github.com/IvanMartinezLeon/FlutterCPAC --skill flutter-cpac
-
-# 2. Ejecutar script de creación
-bash scripts/init_project.sh
 ```
+
+Luego, dile a la IA:
+
+```
+/crear-flutter
+```
+
+O simplemente pídele: "Crea un proyecto Flutter"
 
 El script te guiará para configurar tu proyecto con:
 - Multi-entorno (debug, profile, release)
