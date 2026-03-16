@@ -18,7 +18,7 @@ Esto instala el repositorio completo (skills + scripts + templates).
 ## 🚀 Crear un proyecto Flutter
 
 ```bash
-# 安装 skill
+# Instalar skill
 npx skills add https://github.com/IvanMartinezLeon/FlutterCPAC --skill flutter-cpac
 ```
 
