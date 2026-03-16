@@ -4,16 +4,31 @@
 
 ---
 
-## Instalación como Skill (skills.sh)
+## ⚠️ Importante: Instalar skill + clonar repositorio
+
+El skill solo instala las reglas de desarrollo. **También debes clonar el repositorio** para tener acceso a los scripts y templates:
 
 ```bash
-# OPCIÓN 1: Skill completo (recomendado) - arquitectura + UI
-npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full
+# 1. Instalar skill (solo las reglas)
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full -g
 
-# OPCIÓN 2: Skills individuales
-npx skills add IvanMartinezLeon/FlutterCPAC@flutter-expert
-npx skills add IvanMartinezLeon/FlutterCPAC@ui-expert
+# 2. Clonar repositorio (para tener scripts y templates)
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git flutter_cpac
+cd flutter_cpac
 ```
+
+---
+
+## Instalación como Skill
+
+El skill instala las reglas de desarrollo. Los scripts están en el repositorio.
+
+```bash
+# Instalar skill (global)
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full -g
+
+# Clonar repositorio (para scripts)
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
 
 O manualmente:
 
