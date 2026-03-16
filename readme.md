@@ -1,6 +1,6 @@
 # Flutter_CPAC
 
-**Flutter_CPAC** es un sistema automatizado para crear y configurar proyectos Flutter con estructura lista para producción. Utiliza un agente de IA que sigue un workflow estandarizado para inicializar proyectos con configuración de múltiples entornos e internacionalización.
+**Flutter_CPAC** es un sistema automatizado para crear y configurar proyectos Flutter con estructura lista para producción. Utiliza un agente de IA que sigue un FlutterCPAC estandarizado para inicializar proyectos con configuración de múltiples entornos e internacionalización.
 
 ---
 
@@ -8,11 +8,11 @@
 
 ```bash
 # OPCIÓN 1: Skill completo (recomendado) - arquitectura + UI
-npx skills add IvanMartinezLeon/workflow@flutter-full
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full
 
 # OPCIÓN 2: Skills individuales
-npx skills add IvanMartinezLeon/workflow@flutter-expert
-npx skills add IvanMartinezLeon/workflow@ui-expert
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-expert
+npx skills add IvanMartinezLeon/FlutterCPAC@ui-expert
 ```
 
 O manualmente:
@@ -22,11 +22,11 @@ O manualmente:
 mkdir -p ~/.agents/skills
 
 # Skill completo (arquitectura + UI)
-curl -o ~/.agents/skills/flutter-full/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/skills/flutter-full.md
+curl -o ~/.agents/skills/flutter-full/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/skills/flutter-full.md
 
 # O individualmente
-curl -o ~/.agents/skills/flutter-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/skills/flutter-expert.md
-curl -o ~/.agents/skills/ui-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/skills/ui-expert.md
+curl -o ~/.agents/skills/flutter-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/skills/flutter-expert.md
+curl -o ~/.agents/skills/ui-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/skills/ui-expert.md
 ```
 
 **Skills disponibles:**
@@ -38,11 +38,11 @@ curl -o ~/.agents/skills/ui-expert/SKILL.md https://raw.githubusercontent.com/Iv
 
 ```bash
 # GLOBAL (recomendado): Disponible para todos los proyectos
-npx skills add IvanMartinezLeon/workflow@flutter-full -g
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full -g
 
 # POR PROYECTO: Solo ese proyecto tendrá el skill
 cd mi_proyecto
-npx skills add IvanMartinezLeon/workflow@flutter-full
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full
 ```
 
 | Instalación | Ubicación | Cuándo usarlo |
@@ -50,7 +50,7 @@ npx skills add IvanMartinezLeon/workflow@flutter-full
 | Global (`-g`) | `~/.agents/skills/` | Siempres usas las mismas reglas |
 | Por proyecto | `./.agents/skills/` | Equipos con reglas diferentes por proyecto |
 
-**Repositorio:** https://github.com/IvanMartinezLeon/workflow
+**Repositorio:** https://github.com/IvanMartinezLeon/FlutterCPAC
 
 ---
 
@@ -74,9 +74,9 @@ npx skills add IvanMartinezLeon/workflow@flutter-full
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/IvanMartinezLeon/workflow.git
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
 
-cd workflow
+cd FlutterCPAC
 ```
 
 El script tiene **dos modos**:
@@ -105,9 +105,9 @@ El script automáticamente:
 1. Descarga el repositorio
 2. Abre `createproject.md` con tu agente de IA
 3. Proporciona los datos del proyecto
-4. El agente ejecutará el workflow completo
+4. El agente ejecutará el FlutterCPAC completo
 
-El agente seguirá automáticamente el workflow creando:
+El agente seguirá automáticamente el FlutterCPAC creando:
 - Estructura de proyecto Flutter
 - Tres archivos `.env` (debug, profile, release)
 - Internacionalización (ES/EN)
@@ -120,7 +120,7 @@ Para que tu IA ejecute el script automáticamente, usa este prompt:
 
 ```
 "Ejecuta el script init_project.sh desde este repositorio:
-https://github.com/IvanMartinezLeon/workflow
+https://github.com/IvanMartinezLeon/FlutterCPAC
 
 Usa estos datos cuando te pida:
 - App: [tu_nombre_de_app]
@@ -133,7 +133,7 @@ Después verifica que flutter analyze no dé errores.
 O的直接 Ejecutar:
 
 ```bash
-git clone https://github.com/IvanMartinezLeon/workflow.git && cd workflow && bash init_project.sh
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git && cd FlutterCPAC && bash init_project.sh
 ```
 
 ### 4. Comandos útiles del proyecto generado
@@ -215,4 +215,4 @@ flutter analyze && dart format .
 ## Más Información
 
 - Documentación completa: [createproject.md](./createproject.md)
-- Repositorio: https://github.com/IvanMartinezLeon/workflow
+- Repositorio: https://github.com/IvanMartinezLeon/FlutterCPAC
