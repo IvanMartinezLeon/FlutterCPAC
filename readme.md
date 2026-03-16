@@ -70,6 +70,26 @@ El script te guiará para configurar tu proyecto con:
 - Internacionalización (ES/EN)
 - Tu gestor de estado favorito
 
+---
+
+## Cómo decirle a la IA que cree un proyecto
+
+Una vez instalado el skill, simplemente pídele a la IA:
+
+```
+Crea un proyecto Flutter ejecutando el script scripts/init_project.sh de este repositorio:
+https://github.com/IvanMartinezLeon/FlutterCPAC
+
+Usa estos datos:
+- Nombre de app: mi_app
+- Bundle ID: com.miestudio.miapp
+- Gestor de estado: Bloc/Cubit
+
+Después verifica que flutter analyze no dé errores.
+```
+
+La IA ejecutará el script y configurará el proyecto automáticamente.
+
 **Repositorio:** https://github.com/IvanMartinezLeon/FlutterCPAC
 
 ---
