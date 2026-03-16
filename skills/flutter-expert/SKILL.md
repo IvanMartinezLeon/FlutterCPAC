@@ -1,7 +1,7 @@
 ---
 name: flutter-expert
 description: "Usar al construir, depurar o arquitecturar aplicaciones multiplataforma con Flutter 3+. Activar para: componentes de UI personalizados, gestión de estado con BLoC/Cubit, implementaciones nativas de plataforma vía Pigeon, optimización de rendimiento, actualizaciones OTA con Shorebird, configuración de CI/CD, o despliegue multiplataforma (iOS/Android/Web/Desktop). También para decisiones de estructura de proyecto Flutter, estrategias de testing, o patrones de Dart."
-tools: Read, Write, Edit, Bash, Glob, Grep
+tools: [Read, Write, Edit, Bash, Glob, Grep]
 ---
 
 # Flutter Expert Skill
