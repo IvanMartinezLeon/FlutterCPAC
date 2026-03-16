@@ -140,7 +140,7 @@ print_success "Estructura creada"
 # =============================================================================
 echo -e "\n${YELLOW}📥 Configurando templates...${NC}"
 
-GITHUB_RAW="https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/doc_templates"
+GITHUB_RAW="https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/doc_templates"
 
 get_template() {
     local src=$1
@@ -340,7 +340,7 @@ Para continuar con la configuración avanzada, ejecutar:
 
 \`\`\`bash
 # Instalar skill de Flutter (para que la IA conozca las reglas)
-npx skills add IvanMartinezLeon/workflow@flutter-full -g
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full -g
 
 # O configurar manualmente con tu IDE/IA
 \`\`\`
@@ -370,7 +370,7 @@ if [ "$MODE" == "with-ai" ]; then
     echo -e "${BLUE}┌────────────────────────────────────────────────────────┐${NC}"
     echo -e "${BLUE}│ 1. Instala el skill (si no lo has hecho):             │${NC}"
     echo -e "${BLUE}│                                                    │${NC}"
-    echo -e "${BLUE}│    npx skills add IvanMartinezLeon/workflow@flutter-full -g   │${NC}"
+    echo -e "${BLUE}│    npx skills add IvanMartinezLeon/FlutterCPAC@flutter-full -g   │${NC}"
     echo -e "${BLUE}│                                                    │${NC}"
     echo -e "${BLUE}│ 2. Pide a tu IA que configure el gestor de estado   │${NC}"
     echo -e "${BLUE}│                                                    │${NC}"

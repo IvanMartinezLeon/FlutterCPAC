@@ -2,7 +2,7 @@
 ---
 # 🚀 Create_Project_v0.0
 
-> **⚙️ REPO:** https://github.com/IvanMartinezLeon/workflow
+> **⚙️ REPO:** https://github.com/IvanMartinezLeon/FlutterCPAC
 
 ## Descripción
 Creación de Proyecto Flutter Estándar con Múltiples Entornos e Internacionalización.
@@ -23,7 +23,7 @@ flutter doctor
 
 ```
 
-> **Regla Crítica:** Detener el workflow si hay errores (❌) en Flutter SDK o Android Toolchain.
+> **Regla Crítica:** Detener el FlutterCPAC si hay errores (❌) en Flutter SDK o Android Toolchain.
 
 ---
 
@@ -110,10 +110,10 @@ El Agente debe instalar y activar los skills desde el repositorio local:
 mkdir -p ~/.agents/skills
 
 # Descargar skill principal de Flutter
-curl -o ~/.agents/skills/flutter-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/skills/flutter-expert.md
+curl -o ~/.agents/skills/flutter-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/skills/flutter-expert.md
 
 # Descargar skill de UI (Material Design / Cupertino)
-curl -o ~/.agents/skills/ui-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/skills/ui-expert.md
+curl -o ~/.agents/skills/ui-expert/SKILL.md https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/skills/ui-expert.md
 
 # Activar skills
 skill --name flutter-expert
@@ -124,13 +124,13 @@ skill --name ui-expert
 - `flutter_expert_skill.md`: Todas las reglas de arquitectura CPAC, documentación automática, Spec-Driven Development
 - `ui_expert_skill.md`: Especialistas en Material Design 3 y Cupertino Design System
 
-Los skills se activan automáticamente al inicio de cada tarea del workflow.
+Los skills se activan automáticamente al inicio de cada tarea del FlutterCPAC.
 
 ---
 
 ## 3. 🧠 Cerebro del Proyecto & SDD
 
-> **📋 Templates:** https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/templates/
+> **📋 Templates:** https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/templates/
 
 **Archivos de referencia:**
 - `PROJECT_LOG.md` - Log unificado (FEATURE/BUG/DECISION)
@@ -145,7 +145,7 @@ Los skills se activan automáticamente al inicio de cada tarea del workflow.
 
 ## 4. 🌐 Entornos e Internacionalización
 
-> **📋 Templates:** https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/templates/
+> **📋 Templates:** https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/templates/
 
 **Archivos de referencia:**
 - `env_templates.md` - Plantillas .env
@@ -256,7 +256,7 @@ flutter analyze
 
 ## 7. 📜 Reglas del Agente
 
-> **📋 Template:** https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/templates/agent_templates.md
+> **📋 Template:** https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/templates/agent_templates.md
 
 ---
 
@@ -352,7 +352,7 @@ fi
 
 **2. Archivos obligatorios en `$DOC_PATH`:**
 
-> **📋 Template:** https://raw.githubusercontent.com/IvanMartinezLeon/workflow/main/templates/feature_templates.md
+> **📋 Template:** https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/templates/feature_templates.md
 
 *Crear archivos manualmente o copiar del template:*
 - **SPEC.md** - Especificación
