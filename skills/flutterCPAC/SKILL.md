@@ -1,5 +1,5 @@
 ---
-name: flutter-full
+name: flutterCPAC
 description: "Skill completo de Flutter: arquitectura CPAC, Clean Architecture, gestión de estado con BLoC/Cubit, UI adaptativa (Material Design + Cupertino), documentación automática y Spec-Driven Development. Combina flutter-expert y ui-expert en un solo skill."
 tools: [Read, Write, Edit, Bash, Glob, Grep]
 ---
