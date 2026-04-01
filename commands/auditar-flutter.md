@@ -29,9 +29,21 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
    - Busca duraciones hardcodeadas `Duration(milliseconds: 200)` en vez de usar la normativa centralizada `AppMotion`.
 
 ### FASE 4: Veredicto y Persistencia
-5. **Genera el Reporte de Auditoría (OBLIGATORIO):**
-   - No te limites a soltar el texto en el chat. **Crea un archivo** en la ruta: `doc/reports/audit_report_YYYY_MM_DD.md`.
-   - Usa la plantilla `skills/flutter-cpac/templates/audit_template.md` como base para el reporte.
-   - Rellena todas las secciones aplicables con los hallazgos detectados.
+5. **Genera AMBOS ficheros de forma simultánea (OBLIGATORIO):**
+
+   **Fichero 1 — Reporte de Auditoría:** `doc/reports/audit_report_YYYY_MM_DD.md`
+   - Usa la plantilla `skills/flutter-cpac/templates/audit_template.md`
+   - Rellena todas las secciones con los hallazgos detectados
+
+   **Fichero 2 — Log de la sesión:** `doc/reports/log_report_YYYY_MM_DD.md`
+   - Usa la plantilla `skills/flutter-cpac/templates/log_template.md`
+   - Añade entrada de tipo **AUDIT** con:
+     - **Acción:** AUDIT
+     - **Título:** Auditoría del proyecto - YYYY-MM-DD
+     - **Descripción:** Resumen breve del alcance
+     - **Hallazgos principales:** 3-5 problemas más relevantes
+     - **Reporte completo:** Ruta a `doc/reports/audit_report_YYYY_MM_DD.md`
+
 6. **Resumen en Chat:** Muestra un resumen ejecutivo de los 3 puntos más urgentes detectados.
+
 7. **PREGUNTA al programador** si desea que un agente ejecute un bloque de refactorización "Auto-Fix" (limpiando spacing, inyectando constants, arreglando imports...) sobre todos los hallazgos.
