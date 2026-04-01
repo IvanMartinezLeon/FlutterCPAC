@@ -272,6 +272,68 @@ flutter gen-l10n
 print_success "Internacionalización configurada"
 
 # =============================================================================
+# 9.5 Inyectar main.dart (Base CPAC/i18n/dotenv)
+# =============================================================================
+echo -e "\n${YELLOW}🧩 Inyectando main.dart base CPAC...${NC}"
+
+cat > lib/main.dart << 'EOF'
+import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Carga variables de entorno específicas
+  await dotenv.load(fileName: "assets/env/.env.debug");
+
+  // TODO: Inicializar dependencias y base de estado (GetIt / BlocProviders)
+  
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appName,
+      
+      // -- Configuración Internacionalización --
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('es', ''),
+        Locale('en', ''),
+      ],
+
+      // -- Configuración adaptativa base Core --
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Flutter CPAC')),
+        body: const Center(
+          child: Text('🚀 CPAC Environment Loaded\n\n- i18n Ready\n- DotEnv Ready\n- Clean Arch Rules Ready', textAlign: TextAlign.center),
+        ),
+      ),
+    );
+  }
+}
+EOF
+
+print_success "Plantilla main.dart inyectada"
+
+# =============================================================================
 # 10. Crear PROJECT_LOG.md
 # =============================================================================
 echo -e "\n${YELLOW}📓 Inicializando PROJECT_LOG.md...${NC}"

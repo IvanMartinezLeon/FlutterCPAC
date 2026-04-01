@@ -153,11 +153,29 @@ LayoutBuilder(
 
 ---
 
-## Accesibilidad
+## Accesibilidad (WCAG 2.2 Compliance)
 
+Para cumplir estrictamente con los estándares legales de accesibilidad AA/AAA:
+
+**1. Target Size (WCAG 2.5.8):**
 - **Android:** 48dp mínimo touch target
 - **iOS:** 44x44pt mínimo touch target
-- Siempre usar `Semantics` para describir widgets interactivos
+- Espaciado: Nunca colocar dos botones juntos si su área clicable mide menos de 24x24 px.
+
+**2. Contrastes Mínimos (WCAG 1.4.3 y 1.4.11):**
+- **Textos normales:** Contraste mínimo de **4.5:1** respecto a su fondo.
+- **Títulos y Componentes UI (Iconos, inputs):** Contraste mínimo de **3:1**.
+- Evitar usar el color como única vía para denotar estado (ej. Errores deben llevar ícono además de texto rojo).
+
+**3. Resize Text (WCAG 1.4.4):**
+- Prohibido suprimir la accesibilidad del usuario: `TextScaler.noScaling` **nunca debe usarse**.
+- Los layouts deben prever que el texto pueda escalar hasta el 200%. Evitar anchos o altos fijos (`height`, `width`) en contenedores de texto, usar padding en su lugar para evitar overflow.
+
+**4. Foco Inteligente (WCAG 2.4.11):**
+- Prevenir que el teclado oculte campos de texto: asegurar siempre `resizeToAvoidBottomInset: true` en los Scaffolds.
+
+**5. Screen Readers:**
+- Siempre envolver interfaces custom no descriptivas con `Semantics(label: '...', button: true)` para el TalkBack / VoiceOver.
 
 ---
 

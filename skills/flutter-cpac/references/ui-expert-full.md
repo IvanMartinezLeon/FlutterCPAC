@@ -371,9 +371,11 @@ Navigator.of(context).push(
 
 ---
 
-## Accesibilidad
+## Accesibilidad (WCAG 2.2 Compliance)
 
-### Semantics
+Para certificar interfaces bajo estricta normativa de Accesibilidad (AA/AAA):
+
+### Semantics (Screen Readers)
 
 ```dart
 Semantics(
@@ -384,11 +386,22 @@ Semantics(
 )
 ```
 
-### Minimum Touch Target
+### 1. Target Size (WCAG 2.5.8)
+- **Android:** 48dp mínimo touch target
+- **iOS:** 44x44pt mínimo touch target
+- Mínimo legal por WCAG es 24x24 px CSS. No juntar nunca 2 elementos interactivos sin un espaciado intermedio superior al umbral legal.
 
-- **Android:** 48dp mínimo
-- **iOS:** 44x44pt mínimo
+### 2. Contraste Visual (WCAG 1.4.3 / 1.4.11)
+- Contraste para Tipografías normales debe ser estrictamente de **4.5:1** o mayor frente al fondo.
+- Componentes gráficos interactivos y textos cabecera requieren un contraste mínimo de **3:1**.
+- Señalización de error: Prohibido reflejar error solo mediante color. Siempre debe usarse un ícono adjunto.
 
+### 3. Redimensionamiento y Texto (WCAG 1.4.4)
+- Bloqueo prohibido: Nunca setear anulaciones de escala del usuario (`TextScaler.noScaling` / `textScaleFactor = 1.0`).
+- Usar paddings en lugar de un alto rigido (`height`) para prevenir "desbordamientos de caja" si se escala 200%.
+
+### 4. Visibilidad de Foco (WCAG 2.4.11)
+- Evitar solapamientos (ej teclado bloqueando un TextInput): Aplicar insets dinámicos como `resizeToAvoidBottomInset: true` en Scaffolds.
 ---
 
 ## Imágenes y Assets
@@ -467,6 +480,6 @@ Para cada feature, crear `doc/<feature>/design.md`:
 1. **Nunca hardcodear colores** — usar siempre ThemeData
 2. **Nunca hardcodear spacing** — usar sistema de spacing
 3. **Nunca usar mismo widget para ambas plataformas** — adaptar siempre
-4. **Siempre verificar accessibility** — minimum touch targets
+4. **Siempre verificar accesibilidad (WCAG 2.2)** — minimum touch targets, contrastes mínimos (4.5:1 base) y garantizar que escalar el texto sea posible sin bottom-overflow.
 5. **Siempre usar `const`** — excepto cuando sea imposible
 6. **Seguir platform guidelines** — Material 3 para Android, iOS HIG para iOS
