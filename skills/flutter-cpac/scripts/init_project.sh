@@ -130,7 +130,7 @@ mkdir -p lib/config
 mkdir -p lib/l10n
 mkdir -p lib/core/{error,network,di,usecases}
 mkdir -p lib/features
-mkdir -p doc
+mkdir -p doc/reports
 
 print_success "Estructura creada"
 
@@ -151,7 +151,7 @@ get_template() {
     fi
 }
 
-get_template "doc_templates/project_templates.md" "PROJECT_LOG.md"
+get_template "doc_templates/project_templates.md" "log_report_$(date +%Y_%m_%d).md"
 mkdir -p doc
 get_template "doc_templates/examples/env_example.md" "doc/env_example.md"
 get_template "doc_templates/examples/l10n_example.md" "doc/l10n_example.md"
@@ -393,12 +393,12 @@ EOF
 print_success "Tokens inyectados y MASTER_THEME.md creado"
 
 # =============================================================================
-# 10. Crear PROJECT_LOG.md
+# 10. Crear log_report_YYYY_MM_DD.md
 # =============================================================================
-echo -e "\n${YELLOW}📓 Inicializando PROJECT_LOG.md...${NC}"
+echo -e "\n${YELLOW}📓 Inicializando log_report_YYYY_MM_DD.md...${NC}"
 
-cat > doc/PROJECT_LOG.md << EOF
-# PROJECT_LOG.md
+cat > doc/reports/log_report_$(date +%Y_%m_%d).md << EOF
+# log_report_$(date +%Y_%m_%d).md
 
 > Memoria continua del proyecto: decisiones técnicas, errores, soluciones y aprendizajes
 
@@ -416,14 +416,14 @@ cat > doc/PROJECT_LOG.md << EOF
 
 ## Reglas Iniciales Obligatorias
 
-- [ ] Mantenimiento de PROJECT_LOG.md (ubicado en /doc/)
-- [ ] Regla de Poda: Si el log excede 500 líneas, archivar entradas antiguas en /doc/archive/
+- [ ] Mantenimiento de ficheros log_report_YYYY_MM_DD.md (ubicados en /doc/)
+- [ ] Regla de Poda: Si hay más de 10 ficheros log, archivar los antiguos en /doc/archive/
 - [ ] Usar \`const\` constructors siempre que sea posible
 - [ ] Nombres de clases en PascalCase, métodos y variables en camelCase
 - [ ] Archivos con nombres en snake_case
 - [ ] 0 errores en \`flutter analyze\` antes de cada commit
 - [ ] **Nunca repetir un error ya documentado.** Si ocurre, investigar por qué la solución anterior no fue efectiva.
-- [ ] **Siempre actualizar PROJECT_LOG.md** tras cada modificación de feature
+- [ ] **Siempre crear un nuevo log_report_YYYY_MM_DD.md** tras cada modificación de feature
 - [ ] **Siempre actualizar SPEC.md y TODO.md** de la feature al modificar algo
 - [ ] **Registrar explícitamente Variables de UI** (Tokens, Paletas, Motion) si se alteran, garantizando trazabilidad estética.
 - [ ] UI adaptativa: Material Design (Android) / Cupertino (iOS)
@@ -468,7 +468,7 @@ npx skills add IvanMartinezLeon/FlutterCPAC@flutter-cpac -g
 \`\`\`
 EOF
 
-print_success "PROJECT_LOG.md creado"
+print_success "log_report_YYYY_MM_DD.md creado"
 
 # =============================================================================
 # 11. Verificar análisis estático

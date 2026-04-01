@@ -24,7 +24,7 @@ Guía de prompts de alta eficiencia diseñados para minimizar el consumo de toke
 > 
 > Busca la causa raíz en `lib/features/` usando `grep`. 
 > Prioriza la revisión del BLoC y el mapeo de errores en la capa `data`. 
-> Antes de corregir, revisa `doc/PROJECT_LOG.md` para ver si este error ya ocurrió y cómo se solucionó."
+> Antes de corregir, revisa `doc/reports/log_report_*.md` para ver si este error ya ocurrió y cómo se solucionó."
 
 ---
 
@@ -53,4 +53,4 @@ Guía de prompts de alta eficiencia diseñados para minimizar el consumo de toke
 
 Cuando sientas que el contexto está muy lleno, usa este prompt para "limpiar" la sesión:
 
-> "Haz un resumen de lo avanzado en esta sesión en `doc/PROJECT_LOG.md`. Asegúrate de listar el 'Current State' de la arquitectura. Una vez hecho, indica al usuario que la sesión puede ser reiniciada para ahorrar tokens."
+> "Haz un resumen de lo avanzado en esta sesión en `doc/reports/log_report_YYYY_MM_DD.md`. Asegúrate de listar el 'Current State' de la arquitectura. Una vez hecho, indica al usuario que la sesión puede ser reiniciada para ahorrar tokens."

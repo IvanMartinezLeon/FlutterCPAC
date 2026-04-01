@@ -80,21 +80,21 @@ Cada modificación en una feature debe seguir este ciclo:
 3. **Gen:** Ejecutar `flutter pub get` y generadores
 4. **Analyze:** `flutter analyze` (0 errores)
 5. **Test:** Ejecutar tests
-6. **Memory Log:** Registrar en `PROJECT_LOG.md`
+6. **Memory Log:** Registrar en `doc/reports/log_report_YYYY_MM_DD.md`
 
 ### Reglas obligatorias:
 
 1. **Crear feature/bug:** Crear `doc/<nombre-feature>/SPEC.md` y `TODO.md`
 2. **Modificar feature/bug:** Actualizar archivos existentes en `doc/<nombre-feature>/`
 3. **Siempre que se modifique algo** en la feature (código, tests, dependencias), actualizar la documentación
-4. **Siempre que se modifique algo**, actualizar `doc/PROJECT_LOG.md` con tipo FEATURE o BUG
+4. **Siempre que se modifique algo**, actualizar `doc/reports/log_report_YYYY_MM_DD.md` con tipo FEATURE o BUG
 
 ### Protocolo para features:
 
 1. Verificar ubicación del proyecto (contiene pubspec.yaml)
 2. Si no existe la carpeta `doc/<nombre-feature>/`, crearla
 3. Crear/actualizar archivos con checkboxes para tareas
-4. **Siempre:** Registrar cambios en `PROJECT_LOG.md` (tipo FEATURE o BUG)
+4. **Siempre:** Registrar cambios en `doc/reports/log_report_YYYY_MM_DD.md` (tipo FEATURE o BUG)
 
 ### Plantillas embebidas (con checkboxes):
 
@@ -586,8 +586,8 @@ dart format . --set-exit-if-changed
 
 ---
 
-**Ubicación:** `doc/PROJECT_LOG.md`
-**Regla de Poda:** Si el log excede las 500 líneas o 50 entradas, mover contenido antiguo a `doc/archive/PROJECT_LOG_ARCHIVE_YYYY_QQ.md` manteniendo un resumen de lecciones arriba.
+**Ubicación:** `doc/reports/log_report_YYYY_MM_DD.md`
+**Regla de Poda:** Si hay más de 10 ficheros log, archivar los antiguos en `doc/archive/` manteniendo un resumen de lecciones arriba.
 
 ---
 
@@ -597,7 +597,7 @@ Para maximizar el rendimiento y reducir el coste de la sesión:
 
 1.  **Poda de Directorios**: Ignorar sistemáticamente `build/`, `.dart_tool/`, `ios/`, `android/` y otras carpetas de plataforma a menos que sea una tarea nativa explícita.
 2.  **Lectura Incremental**: Nunca leer más de 600 líneas de un archivo. Si es necesario, usar `grep` para localizar secciones o leer por bloques de 200-300 líneas.
-3.  **Handovers de Memoria**: Siempre rellenar la sección `## Session Handover` en `doc/PROJECT_LOG.md` al finalizar una tarea. El siguiente agente debe leer este resumen *antes* de cualquier otra cosa.
+3.  **Handovers de Memoria**: Siempre rellenar la sección `## Session Handover` en `doc/reports/log_report_YYYY_MM_DD.md` al finalizar una tarea. El siguiente agente debe leer este resumen *antes* de cualquier otra cosa.
 4.  **Búsqueda Quirúrgica**: Usar `grep` o `list_dir` para confirmar la existencia de un archivo antes de intentar leerlo.
 
 ### Protocolo de Relevo (Handover)
@@ -608,7 +608,7 @@ Para maximizar el rendimiento y reducir el coste de la sesión:
 3. Definir los próximos 3 pasos concretos.
 
 **Al inicio de cada sesión:**
-1. Leer `doc/PROJECT_LOG.md` si existe
+1. Leer `doc/reports/log_report_*.md` más reciente si existe
 2. Identificar aprendizajes relevantes a la tarea actual
 3. Aplicar lecciones anteriores para evitar repetir errores
 
@@ -625,13 +625,13 @@ Para maximizar el rendimiento y reducir el coste de la sesión:
 
 ```bash
 # Crear archivo si no existe
-touch PROJECT_LOG.md
+touch doc/reports/log_report_YYYY_MM_DD.md
 
 # Leer log actual
-cat PROJECT_LOG.md
+cat doc/reports/log_report_*.md
 
 # Buscar errores específicos
-grep -i "BUG" PROJECT_LOG.md
+grep -i "BUG" doc/reports/log_report_*.md
 ```
 
 ---

@@ -133,11 +133,11 @@ Los skills se activan automáticamente al inicio de cada tarea del FlutterCPAC.
 > **📋 Templates:** https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/templates/
 
 **Archivos de referencia:**
-- `doc/PROJECT_LOG.md` - Log unificado (FEATURE/BUG/DECISION)
+- `doc/reports/log_report_YYYY_MM_DD.md` - Log unificado (FEATURE/BUG/DECISION)
 - `agent_rules.md` - Reglas del agente
 
 **Crear archivos obligatorios:**
-- `doc/PROJECT_LOG.md` - Log unificado (usar template)
+- `doc/reports/log_report_YYYY_MM_DD.md` - Log unificado (usar template)
 - `doc/PROJECT_SPECIFICATIONS.md` - Modelos y contratos
 - `doc/architecture.md` - Guía de capas
 
@@ -174,12 +174,12 @@ Para cada tarea, el Agente seguirá este ciclo de vida:
 1. **SDD Update:** Actualizar especificaciones en `doc/<feature>/` (SPEC.md, TODO.md)
 2. **Code & Gen:** Escribir código, ejecutar `flutter pub get` y `flutter gen-l10n`
 3. **Linter Check:** `flutter analyze` (0 errores permitidos)
-4. **Memory Log:** Registrar en `PROJECT_LOG.md`
+4. **Memory Log:** Registrar en `doc/reports/log_report_YYYY_MM_DD.md`
 
 **Reglas activas del contrato CPAC:**
 - Arquitectura Clean Architecture con features aisladas
 - Documentación automática de features
-- `doc/PROJECT_LOG.md` actualizado en cada modificación (con regla de poda a las 500 líneas)
+- `doc/reports/log_report_YYYY_MM_DD.md` actualizado en cada modificación (un fichero por sesión/acción)
 - UI adaptativa (Material Design / Cupertino)
 
 ---
@@ -265,7 +265,7 @@ flutter analyze
 * [ ] **Identidad:** Nombre y Bundle ID aplicados.
 * [ ] **Build System:** `generate: true` activo en `pubspec.yaml`.
 * [ ] **IA Expert Skills:** Habilidades activas (`flutter_expert` + `ui_expert`).
-* [ ] **Agente con Memoria:** `PROJECT_LOG.md` con reglas de calidad iniciales.
+* [ ] **Agente con Memoria:** `log_report_YYYY_MM_DD.md` con reglas de calidad iniciales.
 * [ ] **Arquitectura:** Carpeta `doc/` y Gestor de Estado configurados.
 * [ ] **Contrato CPAC:** Versión 1.1.0 activa.
 * [ ] **Configuración de Red:** `environment.dart` listo para manejar múltiples `.env`.
@@ -366,7 +366,7 @@ fi
 3. **Gen:** Ejecutar `flutter pub get` y generadores necesarios
 4. **Analyze:** `flutter analyze` (0 errores)
 5. **Test:** Ejecutar tests
-6. **Memory Log:** Registrar en `PROJECT_LOG.md`
+6. **Memory Log:** Registrar en `doc/reports/log_report_YYYY_MM_DD.md`
 
 ---
 

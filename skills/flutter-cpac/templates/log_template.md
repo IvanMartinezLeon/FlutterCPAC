@@ -1,21 +1,22 @@
-# doc/PROJECT_LOG.md — Template
+# doc/reports/log_report_YYYY_MM_DD.md — Template
 
 > Memoria continua del proyecto: decisiones técnicas, errores, soluciones y aprendizajes
-> **Ubicación:** Raíz del proyecto (junto pubspec.yaml)
+> **Ubicación:** `doc/reports/`
+> **Nomenclatura:** Un fichero por sesión/acción con formato `log_report_YYYY_MM_DD.md`
 
 ---
 
 ## Reglas Iniciales Obligatorias
 
-- [ ] Mantenimiento de PROJECT_LOG.md (ubicado en /doc/)
-- [ ] Regla de Poda: Si el log excede 500 líneas, archivar entradas antiguas en /doc/archive/
+- [ ] Mantenimiento de ficheros `log_report_YYYY_MM_DD.md` (ubicados en /doc/reports/)
+- [ ] Regla de Poda: Si hay más de 10 ficheros log, archivar los antiguos en /doc/archive/
 - [ ] Priorizar `AppLocalizations.of(context)!` sobre strings hardcoded
 - [ ] Usar `const` constructors siempre que sea posible
 - [ ] Nombres de clases en PascalCase, métodos y variables en camelCase
 - [ ] Archivos con nombres en snake_case
 - [ ] 0 errores en `flutter analyze` antes de cada commit
 - [ ] **Nunca repetir un error ya documentado.**
-- [ ] **Siempre actualizar PROJECT_LOG.md** tras cada modificación de feature
+- [ ] **Siempre crear un nuevo `doc/reports/log_report_YYYY_MM_DD.md`** tras cada modificación de feature
 - [ ] **Siempre actualizar SPEC.md y TODO.md** de la feature al modificar algo
 
 ---

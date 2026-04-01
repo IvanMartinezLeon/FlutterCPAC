@@ -52,7 +52,7 @@ La inteligencia artificial auditará las carpetas escaneando el código en busca
 - Peligros de Inaccesibilidad (Touch Targets diminutos o textos fijos en vez de flexibles).
 
 > [!IMPORTANT]
-> Los reportes de auditoría se guardan automáticamente en `doc/audits/audit_report_YYYY_MM_DD.md` para mantener un historial de salud del proyecto.
+> Los reportes de auditoría se guardan automáticamente en `doc/reports/audit_report_YYYY_MM_DD.md` para mantener un historial de salud del proyecto.
 
 ---
 
@@ -87,7 +87,7 @@ La IA ejecutará el script y configurará el proyecto automáticamente.
 - **Theming por Sector Propulsado por IA**: Inyección al crear el proyecto de un `MASTER_THEME.md` con UI tokens y paletas de color en función de la industria dada.
 - **Regulaciones de Motion UI y Acceso**: Curvas de animación y tiempos bloqueados (normativa M3 UX Pro).
 - **Tres entornos pre-configurados**: Debug, Profile y Release con archivos `.env` totalmente integrados en el código.
-- **Memorias Continuas IA**: Generación intrínseca de `doc/PROJECT_LOG.md` con sistema de **Session Handover** para que el siguiente agente releve la tarea con el mínimo consumo de tokens.
+- **Memorias Continuas IA**: Generación intrínseca de `doc/reports/log_report_YYYY_MM_DD.md` con sistema de **Session Handover** para que el siguiente agente releve la tarea con el mínimo consumo de tokens.
 - **Protocolo CEP (Eficiencia de Contexto)**: Reglas estrictas de poda de directorios (`ios/`, `android/`, `build/`) y lectura incremental para ahorrar hasta un 60% en costos de consulta.
 - **Prompt Engineering Optimizado**: Guía de prompts quirúrgicos para creación de features, debugging y refactoring.
 - **Clean Architecture Pura**: Estructura hermética de capas con separación de la presentación, dominio y datos.
@@ -123,7 +123,7 @@ El script automáticamente:
 1. Crea el proyecto Flutter
 2. Configura los tres entornos (.env)
 3. Configura i18n (ES/EN)
-4. Crea `doc/PROJECT_LOG.md`
+4. Crea `doc/reports/log_report_YYYY_MM_DD.md`
 5. Instala dependencias
 6. Ejecuta `flutter analyze`
 
@@ -139,7 +139,7 @@ El agente seguirá automáticamente el FlutterCPAC creando:
 - Tres archivos `.env` (debug, profile, release)
 - Internacionalización (ES/EN)
 - Documentación del proyecto
-- `doc/PROJECT_LOG.md` actualizado
+- `doc/reports/log_report_YYYY_MM_DD.md` actualizado
 
 ### Con agente de IA (recomendado)
 
@@ -212,8 +212,8 @@ lib/
 
 | Archivo | Propósito |
 |---------|-----------|
-| `doc/PROJECT_LOG.md` | Decisiones, errores y aprendizajes unificados (con regla de poda) |
-| `doc/audits/` | Historial de reportes de cumplimiento y calidad |
+| `doc/reports/log_report_YYYY_MM_DD.md` | Decisiones, errores y aprendizajes unificados (un fichero por sesión/acción) |
+| `doc/reports/` | Historial de reportes de cumplimiento y calidad (auditorías + logs) |
 | `doc/<feature>/SPEC.md` | Especificación de funcionalidad (SDD) |
 | `doc/<feature>/TODO.md` | Checklist de estado de la funcionalidad |
 
@@ -227,7 +227,7 @@ Antes de cada commit, ejecuta:
 flutter analyze && dart format .
 ```
 
-**Nunca repetir un error ya documentado en `doc/PROJECT_LOG.md`**
+**Nunca repetir un error ya documentado en `doc/reports/log_report_*.md`**
 
 ---
 

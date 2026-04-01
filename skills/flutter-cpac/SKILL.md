@@ -62,8 +62,10 @@ El proceso es:
    - Si hay errores: corregir todos antes de continuar; re-ejecutar hasta limpio
 5. **Test** — Ejecutar `flutter test --coverage`
    - Si tests fallan: revisar widget tree con DevTools, añadir tests faltantes
-6. **Memory Log** — Registrar en `doc/PROJECT_LOG.md` (tipo FEATURE, BUG o DECISION)
-   - Si el archivo supera las 500 líneas, archivar entradas antiguas en `doc/archive/` manteniendo un resumen de lecciones aprendidas.
+6. **Memory Log** — Crear `doc/reports/log_report_YYYY_MM_DD.md` (tipo FEATURE, BUG, DECISION o AUDIT)
+   - Un fichero por sesión/acción con nomenclatura `log_report_YYYY_MM_DD.md`
+   - Si hay más de 10 ficheros log, archivar los antiguos en `doc/archive/` manteniendo un resumen de lecciones aprendidas.
+   - **Si la acción es AUDIT:** crear AMBOS ficheros simultáneamente — `doc/reports/audit_report_YYYY_MM_DD.md` (usando `templates/audit_template.md`) Y `doc/reports/log_report_YYYY_MM_DD.md` (usando `templates/log_template.md` con tipo AUDIT).
 
 ---
 
@@ -101,10 +103,11 @@ Cargar guía detallada según contexto:
 
 | Template | Descripción |
 |----------|-------------|
-| `templates/project_log_template.md` | Plantilla para PROJECT_LOG.md |
+| `templates/log_template.md` | Plantilla para log_report_YYYY_MM_DD.md |
 | `templates/spec_template.md` | Plantilla SPEC.md para features |
 | `templates/todo_template.md` | Plantilla TODO.md para features |
 | `templates/feature_template.md` | Plantilla ARCHITECTURE.md para features |
+| `templates/audit_template.md` | Plantilla para reportes de auditoría |
 
 ---
 
@@ -136,7 +139,7 @@ Para maximizar la eficiencia y reducir el consumo de tokens, **está prohibido**
 1. **Lectura de Carpetas de Plataforma**: No leer `android/`, `ios/`, `macos/`, `linux/`, `windows/` o `web/` a menos que la tarea sea específicamente una configuración nativa.
 2. **Archivos Gigantes**: Si un archivo tiene más de 600 líneas (ej: `pubspec.lock`), usar `grep` para buscar información específica en lugar de `view_file` completo.
 3. **Escleo de `build/` y `.dart_tool/`**: Estas carpetas deben ser ignoradas siempre.
-4. **Lectura Redundante**: Si ya conoces la estructura por `PROJECT_LOG.md`, no re-listes directorios innecesariamente.
+4. **Lectura Redundante**: Si ya conoces la estructura por los ficheros `doc/reports/log_report_*.md`, no re-listes directorios innecesariamente.
 
 **Estrategia "Read-Only-What-You-Need":**
 - Usar `list_dir` para entender la estructura.
@@ -153,10 +156,11 @@ Para maximizar la eficiencia y reducir el consumo de tokens, **está prohibido**
 - Keys en items de lista y widgets reordenados dinámicamente
 - `Either<Failure, T>` desde repositorios
 - `flutter analyze && dart format .` antes de cada commit
-- Siempre actualizar `doc/PROJECT_LOG.md` tras cada modificación
+- Siempre crear `doc/reports/log_report_YYYY_MM_DD.md` tras cada modificación
+- **Al ejecutar auditoría:** crear AMBOS ficheros simultáneamente — `doc/reports/audit_report_YYYY_MM_DD.md` (usando `templates/audit_template.md`) Y `doc/reports/log_report_YYYY_MM_DD.md` (usando `templates/log_template.md` con tipo AUDIT).
 - Registrar explícitamente en el log las Variables UI (Tokens) inyectadas en la feature que definan su identidad
-- **Mantenimiento Anti-Monstruo:** Podar/Archivar el log en `doc/archive/` si excede las 500 líneas.
-- **Session Handover:** Al final de cada tarea, resumir el estado en `doc/PROJECT_LOG.md` para el siguiente turno/agente.
+- **Mantenimiento Anti-Monstruo:** Archivar logs antiguos en `doc/archive/` si hay más de 10 ficheros.
+- **Session Handover:** Al final de cada tarea, resumir el estado en `doc/reports/log_report_YYYY_MM_DD.md` para el siguiente turno/agente.
 - Siempre actualizar SPEC.md y TODO.md de la feature
 - Detectar plataforma para UI nativa (Material vs Cupertino)
 - Todo viene del theme: colores, tipografía, spacing

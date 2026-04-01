@@ -13,7 +13,7 @@ Cada modificación en una feature debe seguir este ciclo:
 3. **Gen:** Ejecutar `flutter pub get` y generadores
 4. **Analyze:** `flutter analyze` (0 errores)
 5. **Test:** Ejecutar tests
-6. **Memory Log:** Registrar en `doc/PROJECT_LOG.md`
+6. **Memory Log:** Registrar en `doc/reports/log_report_YYYY_MM_DD.md`
 
 ---
 
@@ -22,13 +22,13 @@ Cada modificación en una feature debe seguir este ciclo:
 1. **Crear feature/bug:** Crear `doc/<nombre-feature>/SPEC.md` y `TODO.md`
 2. **Modificar feature/bug:** Actualizar archivos existentes en `doc/<nombre-feature>/`
 3. **Siempre que se modifique algo** en la feature, actualizar la documentación
-4. **Siempre que se modifique algo**, actualizar `doc/PROJECT_LOG.md` con tipo FEATURE o BUG
+4. **Siempre que se modifique algo**, actualizar `doc/reports/log_report_YYYY_MM_DD.md` con tipo FEATURE o BUG
 
 ### Protocolo para features:
 1. Verificar ubicación del proyecto (contiene pubspec.yaml)
 2. Si no existe la carpeta `doc/<nombre-feature>/`, crearla
 3. Crear/actualizar archivos con checkboxes para tareas
-4. **Siempre:** Registrar cambios en `PROJECT_LOG.md` (tipo FEATURE o BUG)
+4. **Siempre:** Registrar cambios en `doc/reports/log_report_YYYY_MM_DD.md` (tipo FEATURE o BUG)
 
 ---
 
@@ -115,23 +115,23 @@ Descripción de la interfaz esperada.
 
 ---
 
-## PROJECT_LOG.md (Log Unificado)
+## log_report_YYYY_MM_DD.md (Log Unificado)
 
 **Propósito:** Mantener memoria continua del proyecto. Unifica decisiones técnicas, errores, soluciones y aprendizajes.
 
-**Ubicación:** Raíz del proyecto (junto pubspec.yaml), **no** dentro de `doc/`.
+**Ubicación:** Carpeta `doc/` del proyecto. Un fichero por sesión/acción con formato `log_report_YYYY_MM_DD.md`.
 
 **Tipos de entrada:** `FEATURE` | `BUG` | `DECISION`
 
 ### Protocolo del Agente
 
 **Al inicio de cada sesión:**
-1. Leer `PROJECT_LOG.md` si existe
+1. Leer el fichero `doc/reports/log_report_*.md` más reciente si existe
 2. Identificar aprendizajes relevantes a la tarea actual
 3. Aplicar lecciones anteriores para evitar repetir errores
 
 **Al finalizar cada sesión:**
-1. Crear nueva entrada con tipo FEATURE, BUG o DECISION
+1. Crear nuevo fichero `doc/reports/log_report_YYYY_MM_DD.md` con tipo FEATURE, BUG o DECISION
 2. Registrar errores si los hubo (tipo BUG)
 3. Documentar soluciones aplicadas
 4. Añadir aprendizajes clave

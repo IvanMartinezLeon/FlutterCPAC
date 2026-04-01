@@ -9,7 +9,7 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
 1. **Lectura de Mandatos (OBLIGATORIO):**
    - Evalúa `skills/flutter-cpac/SKILL.md` para memorizar la arquitectura modular por features.
    - Evalúa `skills/flutter-cpac/references/ui-adaptive.md` para las reglas estrictas de Accesibilidad (WCAG 2.2), Spacing y Motion.
-   - Opcionalmente echa un ojo rápido al `doc/PROJECT_LOG.md` para ver de qué trata.
+   - Opcionalmente echa un ojo rápido a los ficheros `doc/reports/log_report_*.md` para ver de qué trata.
 
 ### FASE 2: Escaneo Técnico
 2. **Análisis Estático Nativo:**
@@ -29,8 +29,9 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
    - Busca duraciones hardcodeadas `Duration(milliseconds: 200)` en vez de usar la normativa centralizada `AppMotion`.
 
 ### FASE 4: Veredicto y Persistencia
-5. **Genera el Reporte Físico (OBLIGATORIO):**
-   - No te limites a soltar el texto en el chat. **Crea un archivo** en la ruta: `doc/audits/audit_report_YYYY_MM_DD.md`.
-   - Organiza el contenido en las categorías: ❌ Errores Críticos (Analyze), 🏗️ Fallos Arquitectónicos, 🎨 Deuda de UI/UX y ⚖️ Cumplimiento de Accesibilidad.
+5. **Genera el Reporte de Auditoría (OBLIGATORIO):**
+   - No te limites a soltar el texto en el chat. **Crea un archivo** en la ruta: `doc/reports/audit_report_YYYY_MM_DD.md`.
+   - Usa la plantilla `skills/flutter-cpac/templates/audit_template.md` como base para el reporte.
+   - Rellena todas las secciones aplicables con los hallazgos detectados.
 6. **Resumen en Chat:** Muestra un resumen ejecutivo de los 3 puntos más urgentes detectados.
 7. **PREGUNTA al programador** si desea que un agente ejecute un bloque de refactorización "Auto-Fix" (limpiando spacing, inyectando constants, arreglando imports...) sobre todos los hallazgos.
