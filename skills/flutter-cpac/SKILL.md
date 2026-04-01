@@ -137,6 +137,7 @@ Cargar guía detallada según contexto:
 - `Either<Failure, T>` desde repositorios
 - `flutter analyze && dart format .` antes de cada commit
 - Siempre actualizar PROJECT_LOG.md tras cada modificación
+- Registrar explícitamente en el log las Variables UI (Tokens) inyectadas en la feature que definan su identidad
 - Siempre actualizar SPEC.md y TODO.md de la feature
 - Detectar plataforma para UI nativa (Material vs Cupertino)
 - Todo viene del theme: colores, tipografía, spacing

@@ -118,17 +118,48 @@ Aplicar mismo patrón: detectar plataforma → widget nativo.
 
 ---
 
-## Spacing System (Unificado)
+## Tokens UI y Sistema de Escalado (UI UX Pro)
+
+La aplicación **debe** basar todo su diseño visual en constantes estáticas en \`lib/config/app_theme_tokens.dart\`. Queda terminantemente prohibido usar tamaños calculados al vuelo (ej: \`width: 20\`) o tipografías fuera de escala.
+
+### 1. Spacing System (Múltiplos Cuadráticos de Oro M3)
+
+Usar siempre estos múltiplos y nunca crear espaciados intermedios (ej: 10, 12).
 
 ```dart
 abstract class AppSpacing {
   static const double xs  =  4.0;
   static const double sm  =  8.0;
-  static const double md  = 16.0;
-  static const double lg  = 24.0;
+  static const double md  = 16.0;  /// Padding base ideal M3
+  static const double lg  = 24.0;  /// Separaciones entre tarjetas
   static const double xl  = 32.0;
-  static const double xxl = 48.0;
+  static const double xxl = 48.0;  /// Tamaño mínimo de Touch Target
 }
+```
+
+### 2. Motion y Animaciones Estrictas
+
+La UX determina que el ojo humano se fatiga con animaciones inconexas. Las interacciones en base al contrato requerirán:
+
+```dart
+abstract class AppMotion {
+  static const Duration fast   = Duration(milliseconds: 150); /// Hovers, Ripples, Switches
+  static const Duration normal = Duration(milliseconds: 250); /// Layout shifts, Dialog transitions
+  static const Duration slow   = Duration(milliseconds: 350); /// Push/Pop Pages, Modals pesados
+  
+  static const Curve defaultCurve = Curves.easeInOutCubic;
+}
+```
+*Prohibido:* Hardcodear \`Duration(seconds: 1)\` o duraciones ajenas a \`AppMotion\`.
+
+### 3. Tipografía Universal (Google Fonts)
+
+Si el `MASTER_THEME.md` define una fuente especial (ej: *Inter* o *Cormorant*), se inyectará en todo el `MaterialApp` utilizando la librería de `google_fonts`:
+
+```dart
+// ThemeData(
+//   textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme),
+// )
 ```
 
 ---

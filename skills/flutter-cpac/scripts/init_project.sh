@@ -76,6 +76,7 @@ echo -e "\n${YELLOW}📝 Datos del proyecto:${NC}"
 if [ "$MODE" == "interactive" ]; then
     read -p "  Nombre de la app (ej: mi_app): " APP_NAME
     read -p "  Bundle ID (ej: com.miestudio.miapp): " BUNDLE_ID
+    read -p "  Sector de la app (ej: Fintech, Retail, Salud): " APP_SECTOR
 
     echo -e "\n  Gestor de estado:"
     echo "    1) Riverpod"
@@ -96,6 +97,7 @@ else
     # Modo no interactivo - usar valores por defecto o entorno
     APP_NAME="${APP_NAME:-mi_app}"
     BUNDLE_ID="${BUNDLE_ID:-com.example.miapp}"
+    APP_SECTOR="${APP_SECTOR:-Genérica}"
     STATE_OPTION="${STATE_OPTION:-2}"  # Default: Bloc/Cubit
 fi
 
@@ -106,7 +108,7 @@ case $STATE_OPTION in
     *) STATE_MANAGER="Bloc/Cubit";;
 esac
 
-echo -e "\n${GREEN}✓${NC} Configuración: $APP_NAME | $BUNDLE_ID | $STATE_MANAGER | Modo: $MODE"
+echo -e "\n${GREEN}✓${NC} Configuración: $APP_NAME | $BUNDLE_ID | $STATE_MANAGER | Sector: $APP_SECTOR | Modo: $MODE"
 
 # =============================================================================
 # 3. Crear proyecto Flutter
@@ -334,6 +336,63 @@ EOF
 print_success "Plantilla main.dart inyectada"
 
 # =============================================================================
+# 9.6 Inyectar Tokens de Diseño y Design System (Idea 1 & 3)
+# =============================================================================
+echo -e "\n${YELLOW}✨ Configurando Design System persistido (Sector: $APP_SECTOR)...${NC}"
+
+mkdir -p doc/design_system
+
+cat > doc/design_system/MASTER_THEME.md << EOF
+# Design System - Master Theme
+
+> **Sector objetivo:** $APP_SECTOR
+> *Este documento debe ser rellenado por la IA de diseño tomando en consideración el sector.*
+
+## Reglas Base Generadas (UI UX Pro)
+- **Sector:** $APP_SECTOR
+- **Modo:** Adaptativo (Material 3 / Cupertino)
+- **Anti-Patrones Estéticos Prohibidos:** *[IA: Listar aquí anti-patrones según el sector]*
+- **Google Fonts Recomendado:** *[IA: Dictaminar tipografías base y display]*
+- **Color Mood:** *[IA: Formular colores primarios y de fondo]*
+
+## Variables a implementar en Flutter
+Cualquier color o sizing resultante deberá volcarse explícitamente en el fichero \`lib/config/app_theme_tokens.dart\`. No hardcodear.
+
+EOF
+
+cat > lib/config/app_theme_tokens.dart << 'EOF'
+import 'package:flutter/material.dart';
+
+/// **AppThemeTokens**
+/// 
+/// Reglas de UX estrictas de inicialización. Toda feature debe basar su UI
+/// apoyándose en estos multiplicadores definidos por CPAC.
+abstract class AppSpacing {
+  static const double xs  =  4.0;
+  static const double sm  =  8.0;
+  static const double md  = 16.0;  /// Padding/Margin estándar (Material)
+  static const double lg  = 24.0;  
+  static const double xl  = 32.0;
+  static const double xxl = 48.0;  /// Minimum Touch Target (WCAG 2.2)
+}
+
+abstract class AppMotion {
+  static const Duration fast   = Duration(milliseconds: 150); /// Ripple, Hover, Micro-interacciones
+  static const Duration normal = Duration(milliseconds: 250); /// Layout shifts, Dialog transitions
+  static const Duration slow   = Duration(milliseconds: 350); /// Push/Pop Pages, Heavy Modals
+  
+  static const Curve defaultCurve = Curves.easeInOutCubic;
+}
+
+abstract class AppColors {
+  // TODO: Generados mediante inteligencia de diseño e injectados.
+  static const Color primary = Colors.deepPurple;
+}
+EOF
+
+print_success "Tokens inyectados y MASTER_THEME.md creado"
+
+# =============================================================================
 # 10. Crear PROJECT_LOG.md
 # =============================================================================
 echo -e "\n${YELLOW}📓 Inicializando PROJECT_LOG.md...${NC}"
@@ -349,6 +408,7 @@ cat > PROJECT_LOG.md << EOF
 
 - **Nombre:** $APP_NAME
 - **Bundle ID:** $BUNDLE_ID
+- **Sector App:** $APP_SECTOR
 - **Gestor de Estado:** $STATE_MANAGER
 - **Fecha de creación:** $(date +%Y-%m-%d)
 
@@ -364,6 +424,7 @@ cat > PROJECT_LOG.md << EOF
 - [ ] **Nunca repetir un error ya documentado.** Si ocurre, investigar por qué la solución anterior no fue efectiva.
 - [ ] **Siempre actualizar PROJECT_LOG.md** tras cada modificación de feature
 - [ ] **Siempre actualizar SPEC.md y TODO.md** de la feature al modificar algo
+- [ ] **Registrar explícitamente Variables de UI** (Tokens, Paletas, Motion) si se alteran, garantizando trazabilidad estética.
 - [ ] UI adaptativa: Material Design (Android) / Cupertino (iOS)
 
 ---
@@ -386,6 +447,7 @@ cat > PROJECT_LOG.md << EOF
 - Feature/Bug/Decisión trabajada: setup
 - Archivos modificados: pubspec.yaml, assets/env/, lib/l10n/
 - Duración estimada: 5min
+- Identidad UI (Tokens): Generación base del sector $APP_SECTOR
 
 **Deuda técnica / Pendientes:**
 
@@ -458,6 +520,7 @@ echo "  • Español (castellano) - Detectado automáticamente"
 echo "  • Inglés (English) - Detectado automáticamente"
 echo ""
 echo "Gestor de Estado: $STATE_MANAGER"
+echo "Sector UX: $APP_SECTOR"
 echo "Modo: $MODE"
 echo ""
 echo -e "${GREEN}El proyecto está listo para:${NC}"

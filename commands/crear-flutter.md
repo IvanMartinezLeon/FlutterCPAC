@@ -12,6 +12,7 @@ Crea un proyecto Flutter usando el workflow de FlutterCPAC.
 3. Solicita al usuario los datos necesarios:
    - Nombre de la aplicación (ej: mi_app)
    - Bundle ID (ej: com.miestudio.miapp)
+   - Sector / Tipo de la aplicación (ej: Fintech, E-Commerce, Salud, B2B, Educación)
    - Gestor de estado (Riverpod, Bloc/Cubit, o Híbrido)
 
 4. Ejecuta el workflow descrito en createproject.md:
