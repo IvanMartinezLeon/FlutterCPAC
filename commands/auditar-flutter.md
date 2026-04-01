@@ -28,8 +28,18 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
    - Busca violaciones de Accesibilidad (WCAG): Fíjate si los Touch Targets (IconButtons) miden menos de 48px, o si algún agente rebelde ha metido el infame comando `TextScaler.noScaling` (lo cual quita lupa a la gente con deficiencia visual).
    - Busca duraciones hardcodeadas `Duration(milliseconds: 200)` en vez de usar la normativa centralizada `AppMotion`.
 
+### FASE 3.5: Documentación de Features (OBLIGATORIO)
+5. **Escanea y genera/actualiza documentación de cada feature:**
+   - Explora `lib/features/` para identificar todas las features existentes
+   - Por cada feature encontrada:
+     - Si NO existe `doc/<feature>/SPEC.md` → créalo usando `skills/flutter-cpac/templates/spec_template.md`
+     - Si NO existe `doc/<feature>/TODO.md` → créalo usando `skills/flutter-cpac/templates/todo_template.md`
+     - Si YA existen → actualiza el estado de los checkboxes según el código actual
+     - Rellena SPEC.md con la descripción real de la feature basada en el código existente
+     - Rellena TODO.md con las tareas pendientes detectadas en el código
+
 ### FASE 4: Veredicto y Persistencia
-5. **Genera AMBOS ficheros de forma simultánea (OBLIGATORIO):**
+6. **Genera AMBOS ficheros de forma simultánea (OBLIGATORIO):**
 
    **Fichero 1 — Reporte de Auditoría:** `doc/reports/audit_report_YYYY_MM_DD.md`
    - Usa la plantilla `skills/flutter-cpac/templates/audit_template.md`
@@ -44,6 +54,6 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
      - **Hallazgos principales:** 3-5 problemas más relevantes
      - **Reporte completo:** Ruta a `doc/reports/audit_report_YYYY_MM_DD.md`
 
-6. **Resumen en Chat:** Muestra un resumen ejecutivo de los 3 puntos más urgentes detectados.
+7. **Resumen en Chat:** Muestra un resumen ejecutivo de los 3 puntos más urgentes detectados.
 
-7. **PREGUNTA al programador** si desea que un agente ejecute un bloque de refactorización "Auto-Fix" (limpiando spacing, inyectando constants, arreglando imports...) sobre todos los hallazgos.
+8. **PREGUNTA al programador** si desea que un agente ejecute un bloque de refactorización "Auto-Fix" (limpiando spacing, inyectando constants, arreglando imports...) sobre todos los hallazgos.

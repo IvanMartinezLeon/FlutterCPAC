@@ -65,7 +65,7 @@ El proceso es:
 6. **Memory Log** — Crear `doc/reports/log_report_YYYY_MM_DD.md` (tipo FEATURE, BUG, DECISION o AUDIT)
    - Un fichero por sesión/acción con nomenclatura `log_report_YYYY_MM_DD.md`
    - Si hay más de 10 ficheros log, archivar los antiguos en `doc/archive/` manteniendo un resumen de lecciones aprendidas.
-   - **Si la acción es AUDIT:** crear AMBOS ficheros simultáneamente — `doc/reports/audit_report_YYYY_MM_DD.md` (usando `templates/audit_template.md`) Y `doc/reports/log_report_YYYY_MM_DD.md` (usando `templates/log_template.md` con tipo AUDIT).
+   - **Si la acción es AUDIT:** crear AMBOS ficheros simultáneamente — `doc/reports/audit_report_YYYY_MM_DD.md` (usando `templates/audit_template.md`) Y `doc/reports/log_report_YYYY_MM_DD.md` (usando `templates/log_template.md` con tipo AUDIT). Además, escanear `lib/features/` y generar/actualizar `doc/<feature>/SPEC.md` y `doc/<feature>/TODO.md` para cada feature existente.
 
 ---
 
