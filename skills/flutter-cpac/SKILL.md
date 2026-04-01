@@ -126,6 +126,22 @@ Cargar guía detallada según contexto:
 - ✅ Responde en castellano
 - ✅ Código en inglés (clases, variables, funciones)
 - ✅ Términos técnicos en inglés (Widget, Cubit, Repository, Either)
+- ✅ **Ahorro de Tokens**: Ser conciso, usar `grep` y evitar lecturas redundantes.
+
+---
+
+## 🧠 Context Management & Token Savings
+
+Para maximizar la eficiencia y reducir el consumo de tokens, **está prohibido**:
+1. **Lectura de Carpetas de Plataforma**: No leer `android/`, `ios/`, `macos/`, `linux/`, `windows/` o `web/` a menos que la tarea sea específicamente una configuración nativa.
+2. **Archivos Gigantes**: Si un archivo tiene más de 600 líneas (ej: `pubspec.lock`), usar `grep` para buscar información específica en lugar de `view_file` completo.
+3. **Escleo de `build/` y `.dart_tool/`**: Estas carpetas deben ser ignoradas siempre.
+4. **Lectura Redundante**: Si ya conoces la estructura por `PROJECT_LOG.md`, no re-listes directorios innecesariamente.
+
+**Estrategia "Read-Only-What-You-Need":**
+- Usar `list_dir` para entender la estructura.
+- Usar `grep` para localizar símbolos.
+- Usar `view_file` con rangos de líneas (`StartLine`, `EndLine`) para archivos grandes.
 
 ---
 
@@ -140,6 +156,7 @@ Cargar guía detallada según contexto:
 - Siempre actualizar `doc/PROJECT_LOG.md` tras cada modificación
 - Registrar explícitamente en el log las Variables UI (Tokens) inyectadas en la feature que definan su identidad
 - **Mantenimiento Anti-Monstruo:** Podar/Archivar el log en `doc/archive/` si excede las 500 líneas.
+- **Session Handover:** Al final de cada tarea, resumir el estado en `doc/PROJECT_LOG.md` para el siguiente turno/agente.
 - Siempre actualizar SPEC.md y TODO.md de la feature
 - Detectar plataforma para UI nativa (Material vs Cupertino)
 - Todo viene del theme: colores, tipografía, spacing

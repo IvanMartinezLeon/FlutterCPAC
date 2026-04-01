@@ -50,3 +50,12 @@
 - [ ]
 
 ---
+
+## 🏁 Session Handover (Resumen de Fin de Sesión)
+
+> **Uso:** Rellenar este campo al finalizar una tarea o antes de cerrar el chat para que el siguiente agente no consuma tokens analizando todo desde cero.
+
+- **Estado Actual**: [Punto en el que se ha quedado la tarea]
+- **Archivos Modificados Clave**: [Ruta de los 2-3 archivos más importantes]
+- **Próximos Pasos Pendientes**: [Lista corta de TODOs inmediatos]
+- **Contexto Crítico**: [Cualquier aviso o "trampa" en el código detectada]

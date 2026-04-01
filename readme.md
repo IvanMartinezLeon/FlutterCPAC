@@ -87,7 +87,9 @@ La IA ejecutará el script y configurará el proyecto automáticamente.
 - **Theming por Sector Propulsado por IA**: Inyección al crear el proyecto de un `MASTER_THEME.md` con UI tokens y paletas de color en función de la industria dada.
 - **Regulaciones de Motion UI y Acceso**: Curvas de animación y tiempos bloqueados (normativa M3 UX Pro).
 - **Tres entornos pre-configurados**: Debug, Profile y Release con archivos `.env` totalmente integrados en el código.
-- **Memoria Continúa IA**: Generación intrínseca de `doc/PROJECT_LOG.md` instando a la IA a memorizar sus "Variables UI" y decisiones en cada sesión (con regla de poda a las 500 líneas para evitar el *context bloat*).
+- **Memorias Continuas IA**: Generación intrínseca de `doc/PROJECT_LOG.md` con sistema de **Session Handover** para que el siguiente agente releve la tarea con el mínimo consumo de tokens.
+- **Protocolo CEP (Eficiencia de Contexto)**: Reglas estrictas de poda de directorios (`ios/`, `android/`, `build/`) y lectura incremental para ahorrar hasta un 60% en costos de consulta.
+- **Prompt Engineering Optimizado**: Guía de prompts quirúrgicos para creación de features, debugging y refactoring.
 - **Clean Architecture Pura**: Estructura hermética de capas con separación de la presentación, dominio y datos.
 - **Contrato CPAC**: Exigen que antes de cada commit obligatoriamente se pase un `flutter analyze`.
 
@@ -235,6 +237,7 @@ flutter analyze && dart format .
 |-------|-------------|
 | `flutter_expert` | Arquitectura CPAC, Clean Architecture, SDD, documentación automática |
 | `ui_expert` | Material Design 3, Cupertino, widgets adaptativos |
+| `prompt_expert` | Guía de eficiencia CEP y prompts quirúrguicos para ahorrar tokens |
 
 ---
 

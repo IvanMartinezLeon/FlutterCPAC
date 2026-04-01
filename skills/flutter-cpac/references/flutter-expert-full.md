@@ -589,7 +589,23 @@ dart format . --set-exit-if-changed
 **Ubicación:** `doc/PROJECT_LOG.md`
 **Regla de Poda:** Si el log excede las 500 líneas o 50 entradas, mover contenido antiguo a `doc/archive/PROJECT_LOG_ARCHIVE_YYYY_QQ.md` manteniendo un resumen de lecciones arriba.
 
-### Protocolo del Agente
+---
+
+## ⚡ Protocolo de Eficiencia de Contexto (CEP)
+
+Para maximizar el rendimiento y reducir el coste de la sesión:
+
+1.  **Poda de Directorios**: Ignorar sistemáticamente `build/`, `.dart_tool/`, `ios/`, `android/` y otras carpetas de plataforma a menos que sea una tarea nativa explícita.
+2.  **Lectura Incremental**: Nunca leer más de 600 líneas de un archivo. Si es necesario, usar `grep` para localizar secciones o leer por bloques de 200-300 líneas.
+3.  **Handovers de Memoria**: Siempre rellenar la sección `## Session Handover` en `doc/PROJECT_LOG.md` al finalizar una tarea. El siguiente agente debe leer este resumen *antes* de cualquier otra cosa.
+4.  **Búsqueda Quirúrgica**: Usar `grep` o `list_dir` para confirmar la existencia de un archivo antes de intentar leerlo.
+
+### Protocolo de Relevo (Handover)
+
+**Al finalizar cada tarea o sesión:**
+1. Resumir archivos clave modificados.
+2. Anotar el estado de la arquitectura (si hay deuda técnica).
+3. Definir los próximos 3 pasos concretos.
 
 **Al inicio de cada sesión:**
 1. Leer `doc/PROJECT_LOG.md` si existe
