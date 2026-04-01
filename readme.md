@@ -1,39 +1,57 @@
 # Flutter_CPAC
 
-**Flutter_CPAC** es un sistema automatizado para crear y configurar proyectos Flutter con estructura lista para producción. Utiliza un agente de IA que sigue un FlutterCPAC estandarizado para inicializar proyectos con configuración de múltiples entornos e internacionalización.
+**Flutter_CPAC** es un sistema automatizado para crear, configurar y auditar proyectos Flutter listos para la pre-producción. Utiliza contratos rígidos basados en Markdown para asegurar que cualquier agente de IA aplique Clean Architecture, inyecte Tokens de diseño estéticos y siga normativas de accesibilidad WCAG.
+
+### 🤖 Agentes IA y Editores Soportados
+
+Al ser un framework basado puramente en conocimiento Markdown y Scripts Bash, **es 100% universal**. Tienes soporte nativo garantizado en:
+- **Agentes Nativos:** Antigravity, Claude Code, OpenCode.
+- **IDEs con IA Integrada:** Cursor, Windsurf, Trae, Roo Code, GitHub Copilot.
+- **Herramientas de Workflow:** CodeBuddy, Qoder, Gemini CLI.
 
 ---
 
-## Instalación
+## 📦 Instalación Global (En cualquier IA)
 
 ```bash
-npx skills add https://github.com/IvanMartinezLeon/FlutterCPAC --skill flutter-cpac
+# Permite a tu Agente AI o IDE aprender sobre el contrato CPAC:
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-cpac -g
 ```
 
-Esto instala el repositorio completo (skills + scripts + templates).
+| Tipo de instalación | Directorio destino | Caso de uso |
 |-------------|-----------|---------------|
-| Global (`-g`) | `~/.agents/skills/` | Siempres usas las mismas reglas |
-| Por proyecto | `./.agents/skills/` | Equipos con reglas diferentes por proyecto |
+| Global (`-g`) | `~/.agents/skills/` | Quieres usar CPAC como tu estándar general en todos tus proyectos. |
+| Por proyecto | `./.agents/skills/` | Reglas estrictas aplicadas al equipo de un único repositorio local. |
 
 ## 🚀 Crear un proyecto Flutter
 
-```bash
-# Instalar skill
-npx skills add https://github.com/IvanMartinezLeon/FlutterCPAC --skill flutter-cpac
-```
+## 🚀 Inicializar un Proyecto
 
-Luego, dile a la IA:
+Una vez tengas alojada la Skill (o simplemente abriendo la carpeta de este repositorio en el IDE), escribe a la IA en el chat:
 
-```
-/crear-flutter
-```
+> ```
+> /crear-flutter
+> ```
 
-O simplemente pídele: "Crea un proyecto Flutter"
+A continuación, la inteligencia empezará la cadena para inyectar un ecosistema con:
+- Arquitectura Clean / BloC base automatizada.
+- Internacionalización con `AppLocalizations` (ES/EN) + `DotEnv` multi-entorno.
+- **¡NUEVO!** Preguntará por el "Sector de la app" (ej: *Banca, Retail, Clínicas...*) y formulará un `MASTER_THEME.md` generándote paletas y **Variables de UI** (Tokens) específicas para tu contexto.
 
-El script te guiará para configurar tu proyecto con:
-- Multi-entorno (debug, profile, release)
-- Internacionalización (ES/EN)
-- Tu gestor de estado favorito
+---
+
+## 🔎 Auditar un Proyecto Existente
+
+Si aplicaste la arquitectura hace semanas y quieres pasar un control de calidad (o estás asumiendo código legado), pídele a la IA:
+
+> ```
+> /auditar-flutter
+> ```
+
+La inteligencia artificial auditará las carpetas escaneando el código en busca de: 
+- Violaciones de arquitectura funcional (Ej: Dependencias cruzadas prohibidas).
+- Vulneraciones estéticas (Ej: Colores o Sizes *hardcoded* en vez de usar los de `AppSpacing`).
+- Peligros de Inaccesibilidad (Touch Targets diminutos o textos fijos en vez de flexibles).
 
 ---
 
@@ -65,15 +83,12 @@ La IA ejecutará el script y configurará el proyecto automáticamente.
 
 ## Características
 
-- **Tres entornos configurados**: Debug, Profile y Release con archivos `.env` separados
-- **Internacionalización integrada**: Español (castellano) e Inglés con detección automática del idioma del dispositivo
-- **Gestores de estado soportados**: Riverpod, Bloc/Cubit e Híbrido
-- **Documentación automática**: Plantillas para especificaciones, arquitectura y decisiones
-- **Reglas de calidad**: Análisis de código y formateo obligatorio
-- **Clean Architecture**: Estructura de capas con separación de concerns (data/domain/presentation)
-- **Gestión de estado con Cubit**: Estados tipados con freezed y manejo de errores con Either
-- **UI Adaptativa**: Material Design 3 (Android) y Cupertino (iOS)
-- **Contrato CPAC**: Arquitectura versionada y modular con features aisladas
+- **Theming por Sector Propulsado por IA**: Inyección al crear el proyecto de un `MASTER_THEME.md` con UI tokens y paletas de color en función de la industria dada.
+- **Regulaciones de Motion UI y Acceso**: Curvas de animación y tiempos bloqueados (normativa M3 UX Pro).
+- **Tres entornos pre-configurados**: Debug, Profile y Release con archivos `.env` totalmente integrados en el código.
+- **Memoria Continúa IA**: Generación intrínseca de `PROJECT_LOG.md` instando a la IA a memorizar sus "Variables UI" y decisiones en cada sesión para que otro agente pueda relevarlo al día siguiente sin perder contexto.
+- **Clean Architecture Pura**: Estructura hermética de capas con separación de la presentación, dominio y datos.
+- **Contrato CPAC**: Exigen que antes de cada commit obligatoriamente se pase un `flutter analyze`.
 
 ---
 
@@ -139,10 +154,10 @@ Usa estos datos cuando te pida:
 Después verifica que flutter analyze no dé errores.
 ```
 
-O的直接 Ejecutar:
+O ejecutar directamente desde una shell limpia en Bash:
 
 ```bash
-git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git && cd FlutterCPAC && bash init_project.sh
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git && cd FlutterCPAC && bash scripts/init_project.sh
 ```
 
 ### 4. Comandos útiles del proyecto generado
