@@ -13,7 +13,7 @@ Cada modificación en una feature debe seguir este ciclo:
 3. **Gen:** Ejecutar `flutter pub get` y generadores
 4. **Analyze:** `flutter analyze` (0 errores)
 5. **Test:** Ejecutar tests
-6. **Memory Log:** Registrar en `PROJECT_LOG.md`
+6. **Memory Log:** Registrar en `doc/PROJECT_LOG.md`
 
 ---
 
@@ -22,7 +22,7 @@ Cada modificación en una feature debe seguir este ciclo:
 1. **Crear feature/bug:** Crear `doc/<nombre-feature>/SPEC.md` y `TODO.md`
 2. **Modificar feature/bug:** Actualizar archivos existentes en `doc/<nombre-feature>/`
 3. **Siempre que se modifique algo** en la feature, actualizar la documentación
-4. **Siempre que se modifique algo**, actualizar `PROJECT_LOG.md` con tipo FEATURE o BUG
+4. **Siempre que se modifique algo**, actualizar `doc/PROJECT_LOG.md` con tipo FEATURE o BUG
 
 ### Protocolo para features:
 1. Verificar ubicación del proyecto (contiene pubspec.yaml)

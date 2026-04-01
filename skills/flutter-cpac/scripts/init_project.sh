@@ -397,7 +397,7 @@ print_success "Tokens inyectados y MASTER_THEME.md creado"
 # =============================================================================
 echo -e "\n${YELLOW}📓 Inicializando PROJECT_LOG.md...${NC}"
 
-cat > PROJECT_LOG.md << EOF
+cat > doc/PROJECT_LOG.md << EOF
 # PROJECT_LOG.md
 
 > Memoria continua del proyecto: decisiones técnicas, errores, soluciones y aprendizajes
@@ -416,7 +416,8 @@ cat > PROJECT_LOG.md << EOF
 
 ## Reglas Iniciales Obligatorias
 
-- [ ] PROJECT_LOG.md en raíz del proyecto (no en doc/)
+- [ ] Mantenimiento de PROJECT_LOG.md (ubicado en /doc/)
+- [ ] Regla de Poda: Si el log excede 500 líneas, archivar entradas antiguas en /doc/archive/
 - [ ] Usar \`const\` constructors siempre que sea posible
 - [ ] Nombres de clases en PascalCase, métodos y variables en camelCase
 - [ ] Archivos con nombres en snake_case

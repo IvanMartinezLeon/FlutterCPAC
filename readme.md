@@ -25,8 +25,6 @@ npx skills add IvanMartinezLeon/FlutterCPAC@flutter-cpac -g
 
 ## 🚀 Crear un proyecto Flutter
 
-## 🚀 Inicializar un Proyecto
-
 Una vez tengas alojada la Skill (o simplemente abriendo la carpeta de este repositorio en el IDE), escribe a la IA en el chat:
 
 > ```
@@ -52,6 +50,9 @@ La inteligencia artificial auditará las carpetas escaneando el código en busca
 - Violaciones de arquitectura funcional (Ej: Dependencias cruzadas prohibidas).
 - Vulneraciones estéticas (Ej: Colores o Sizes *hardcoded* en vez de usar los de `AppSpacing`).
 - Peligros de Inaccesibilidad (Touch Targets diminutos o textos fijos en vez de flexibles).
+
+> [!IMPORTANT]
+> Los reportes de auditoría se guardan automáticamente en `doc/audits/audit_report_YYYY_MM_DD.md` para mantener un historial de salud del proyecto.
 
 ---
 
@@ -86,7 +87,7 @@ La IA ejecutará el script y configurará el proyecto automáticamente.
 - **Theming por Sector Propulsado por IA**: Inyección al crear el proyecto de un `MASTER_THEME.md` con UI tokens y paletas de color en función de la industria dada.
 - **Regulaciones de Motion UI y Acceso**: Curvas de animación y tiempos bloqueados (normativa M3 UX Pro).
 - **Tres entornos pre-configurados**: Debug, Profile y Release con archivos `.env` totalmente integrados en el código.
-- **Memoria Continúa IA**: Generación intrínseca de `PROJECT_LOG.md` instando a la IA a memorizar sus "Variables UI" y decisiones en cada sesión para que otro agente pueda relevarlo al día siguiente sin perder contexto.
+- **Memoria Continúa IA**: Generación intrínseca de `doc/PROJECT_LOG.md` instando a la IA a memorizar sus "Variables UI" y decisiones en cada sesión (con regla de poda a las 500 líneas para evitar el *context bloat*).
 - **Clean Architecture Pura**: Estructura hermética de capas con separación de la presentación, dominio y datos.
 - **Contrato CPAC**: Exigen que antes de cada commit obligatoriamente se pase un `flutter analyze`.
 
@@ -120,7 +121,7 @@ El script automáticamente:
 1. Crea el proyecto Flutter
 2. Configura los tres entornos (.env)
 3. Configura i18n (ES/EN)
-4. Crea PROJECT_LOG.md
+4. Crea `doc/PROJECT_LOG.md`
 5. Instala dependencias
 6. Ejecuta `flutter analyze`
 
@@ -136,7 +137,7 @@ El agente seguirá automáticamente el FlutterCPAC creando:
 - Tres archivos `.env` (debug, profile, release)
 - Internacionalización (ES/EN)
 - Documentación del proyecto
-- PROJECT_LOG.md en la raíz
+- `doc/PROJECT_LOG.md` actualizado
 
 ### Con agente de IA (recomendado)
 
@@ -209,9 +210,10 @@ lib/
 
 | Archivo | Propósito |
 |---------|-----------|
-| `PROJECT_LOG.md` | Decisiones, errores y aprendizajes unificados (raíz) |
-| `doc/<feature>/SPEC.md` | Especificación de feature |
-| `doc/<feature>/TODO.md` | Checklist de feature |
+| `doc/PROJECT_LOG.md` | Decisiones, errores y aprendizajes unificados (con regla de poda) |
+| `doc/audits/` | Historial de reportes de cumplimiento y calidad |
+| `doc/<feature>/SPEC.md` | Especificación de funcionalidad (SDD) |
+| `doc/<feature>/TODO.md` | Checklist de estado de la funcionalidad |
 
 ---
 
@@ -223,7 +225,7 @@ Antes de cada commit, ejecuta:
 flutter analyze && dart format .
 ```
 
-**Nunca repetir un error ya documentado en PROJECT_LOG.md**
+**Nunca repetir un error ya documentado en `doc/PROJECT_LOG.md`**
 
 ---
 

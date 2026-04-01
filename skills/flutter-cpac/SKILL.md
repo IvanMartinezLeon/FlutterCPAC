@@ -62,7 +62,8 @@ El proceso es:
    - Si hay errores: corregir todos antes de continuar; re-ejecutar hasta limpio
 5. **Test** — Ejecutar `flutter test --coverage`
    - Si tests fallan: revisar widget tree con DevTools, añadir tests faltantes
-6. **Memory Log** — Registrar en `PROJECT_LOG.md` (tipo FEATURE, BUG o DECISION)
+6. **Memory Log** — Registrar en `doc/PROJECT_LOG.md` (tipo FEATURE, BUG o DECISION)
+   - Si el archivo supera las 500 líneas, archivar entradas antiguas en `doc/archive/` manteniendo un resumen de lecciones aprendidas.
 
 ---
 
@@ -136,8 +137,9 @@ Cargar guía detallada según contexto:
 - Keys en items de lista y widgets reordenados dinámicamente
 - `Either<Failure, T>` desde repositorios
 - `flutter analyze && dart format .` antes de cada commit
-- Siempre actualizar PROJECT_LOG.md tras cada modificación
+- Siempre actualizar `doc/PROJECT_LOG.md` tras cada modificación
 - Registrar explícitamente en el log las Variables UI (Tokens) inyectadas en la feature que definan su identidad
+- **Mantenimiento Anti-Monstruo:** Podar/Archivar el log en `doc/archive/` si excede las 500 líneas.
 - Siempre actualizar SPEC.md y TODO.md de la feature
 - Detectar plataforma para UI nativa (Material vs Cupertino)
 - Todo viene del theme: colores, tipografía, spacing

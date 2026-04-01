@@ -87,7 +87,7 @@ Cada modificación en una feature debe seguir este ciclo:
 1. **Crear feature/bug:** Crear `doc/<nombre-feature>/SPEC.md` y `TODO.md`
 2. **Modificar feature/bug:** Actualizar archivos existentes en `doc/<nombre-feature>/`
 3. **Siempre que se modifique algo** en la feature (código, tests, dependencias), actualizar la documentación
-4. **Siempre que se modifique algo**, actualizar `PROJECT_LOG.md` con tipo FEATURE o BUG
+4. **Siempre que se modifique algo**, actualizar `doc/PROJECT_LOG.md` con tipo FEATURE o BUG
 
 ### Protocolo para features:
 
@@ -586,16 +586,13 @@ dart format . --set-exit-if-changed
 
 ---
 
-## 📓 PROJECT_LOG.md (Log Unificado)
-
-**Propósito:** Mantener memoria continua del proyecto. Unifica decisiones técnicas, errores, soluciones y aprendizajes. Usar indicador de tipo: **FEATURE** | **BUG** | **DECISION**.
-
-**Ubicación:** `doc/PROJECT_LOG.md` (en la raíz del proyecto, no dentro de `doc/`)
+**Ubicación:** `doc/PROJECT_LOG.md`
+**Regla de Poda:** Si el log excede las 500 líneas o 50 entradas, mover contenido antiguo a `doc/archive/PROJECT_LOG_ARCHIVE_YYYY_QQ.md` manteniendo un resumen de lecciones arriba.
 
 ### Protocolo del Agente
 
 **Al inicio de cada sesión:**
-1. Leer `PROJECT_LOG.md` si existe
+1. Leer `doc/PROJECT_LOG.md` si existe
 2. Identificar aprendizajes relevantes a la tarea actual
 3. Aplicar lecciones anteriores para evitar repetir errores
 

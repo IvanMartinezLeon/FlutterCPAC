@@ -133,11 +133,11 @@ Los skills se activan automáticamente al inicio de cada tarea del FlutterCPAC.
 > **📋 Templates:** https://raw.githubusercontent.com/IvanMartinezLeon/FlutterCPAC/main/templates/
 
 **Archivos de referencia:**
-- `PROJECT_LOG.md` - Log unificado (FEATURE/BUG/DECISION)
+- `doc/PROJECT_LOG.md` - Log unificado (FEATURE/BUG/DECISION)
 - `agent_rules.md` - Reglas del agente
 
 **Crear archivos obligatorios:**
-- `PROJECT_LOG.md` - Log unificado (usar template)
+- `doc/PROJECT_LOG.md` - Log unificado (usar template)
 - `doc/PROJECT_SPECIFICATIONS.md` - Modelos y contratos
 - `doc/architecture.md` - Guía de capas
 
@@ -179,7 +179,7 @@ Para cada tarea, el Agente seguirá este ciclo de vida:
 **Reglas activas del contrato CPAC:**
 - Arquitectura Clean Architecture con features aisladas
 - Documentación automática de features
-- PROJECT_LOG.md actualizado en cada modificación
+- `doc/PROJECT_LOG.md` actualizado en cada modificación (con regla de poda a las 500 líneas)
 - UI adaptativa (Material Design / Cupertino)
 
 ---

@@ -9,7 +9,7 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
 1. **Lectura de Mandatos (OBLIGATORIO):**
    - Evalúa `skills/flutter-cpac/SKILL.md` para memorizar la arquitectura modular por features.
    - Evalúa `skills/flutter-cpac/references/ui-adaptive.md` para las reglas estrictas de Accesibilidad (WCAG 2.2), Spacing y Motion.
-   - Opcionalmente echa un ojo rápido al `PROJECT_LOG.md` de la raíz del proyecto para ver de qué trata.
+   - Opcionalmente echa un ojo rápido al `doc/PROJECT_LOG.md` para ver de qué trata.
 
 ### FASE 2: Escaneo Técnico
 2. **Análisis Estático Nativo:**
@@ -28,6 +28,9 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
    - Busca violaciones de Accesibilidad (WCAG): Fíjate si los Touch Targets (IconButtons) miden menos de 48px, o si algún agente rebelde ha metido el infame comando `TextScaler.noScaling` (lo cual quita lupa a la gente con deficiencia visual).
    - Busca duraciones hardcodeadas `Duration(milliseconds: 200)` en vez de usar la normativa centralizada `AppMotion`.
 
-### FASE 4: Veredicto
-5. Genera un **Reporte de Auditoría Estricto** usando artefactos u output de consola organizado en las categorías: Errores, Fallos Arquitectónicos y Fallos UI/UX.
-6. **PREGUNTA al programador** si desea que un agente ejecute un bloque de refactorización "Auto-Fix" (limpiando spacing, inyectando constants, arreglando imports...) sobre todos los hallazgos.
+### FASE 4: Veredicto y Persistencia
+5. **Genera el Reporte Físico (OBLIGATORIO):**
+   - No te limites a soltar el texto en el chat. **Crea un archivo** en la ruta: `doc/audits/audit_report_YYYY_MM_DD.md`.
+   - Organiza el contenido en las categorías: ❌ Errores Críticos (Analyze), 🏗️ Fallos Arquitectónicos, 🎨 Deuda de UI/UX y ⚖️ Cumplimiento de Accesibilidad.
+6. **Resumen en Chat:** Muestra un resumen ejecutivo de los 3 puntos más urgentes detectados.
+7. **PREGUNTA al programador** si desea que un agente ejecute un bloque de refactorización "Auto-Fix" (limpiando spacing, inyectando constants, arreglando imports...) sobre todos los hallazgos.

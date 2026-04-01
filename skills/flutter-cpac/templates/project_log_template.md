@@ -1,4 +1,4 @@
-# PROJECT_LOG.md — Template
+# doc/PROJECT_LOG.md — Template
 
 > Memoria continua del proyecto: decisiones técnicas, errores, soluciones y aprendizajes
 > **Ubicación:** Raíz del proyecto (junto pubspec.yaml)
@@ -7,7 +7,8 @@
 
 ## Reglas Iniciales Obligatorias
 
-- [ ] PROJECT_LOG.md en raíz del proyecto (no en doc/)
+- [ ] Mantenimiento de PROJECT_LOG.md (ubicado en /doc/)
+- [ ] Regla de Poda: Si el log excede 500 líneas, archivar entradas antiguas en /doc/archive/
 - [ ] Priorizar `AppLocalizations.of(context)!` sobre strings hardcoded
 - [ ] Usar `const` constructors siempre que sea posible
 - [ ] Nombres de clases en PascalCase, métodos y variables en camelCase
