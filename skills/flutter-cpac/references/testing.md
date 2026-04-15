@@ -78,3 +78,14 @@ test/
 - Usar `mocktail` o `mockito` para mocks
 - Usar `bloc_test` para testing de Cubits/Blocs
 - `flutter analyze` debe dar 0 errores antes de PR
+
+---
+
+## Reporte de Resultados (TEST.md)
+
+Tras cada ejecución de tests, es obligatorio actualizar el fichero `doc/<feature>/TEST.md` con:
+1. **Resultado global:** ¿Pasaron todos los tests?
+2. **Métricas de cobertura:** Porcentaje de líneas cubiertas en la feature.
+3. **Detalle por componente:** Estado de tests unitarios, de bloc y de widgets.
+
+Esto asegura que la calidad de la feature sea visible y rastreable durante todo el desarrollo.

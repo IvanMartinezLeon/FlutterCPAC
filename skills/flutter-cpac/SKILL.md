@@ -52,7 +52,7 @@ El proceso es:
 
 ## Core Workflow
 
-1. **SPEC Update** — Actualizar `doc/<feature>/SPEC.md` y `TODO.md`
+1. **SPEC Update** — Actualizar `doc/<feature>/SPEC.md`, `TODO.md` y `TEST.md`
    - Si no existen: crearlos usando plantillas de `templates/`
 2. **Code** — Implementar código siguiendo Clean Architecture (data/domain/presentation)
    - Si arquitectura no está clara: cargar `references/architecture-cpac.md` y `references/project-structure.md`
@@ -62,6 +62,7 @@ El proceso es:
    - Si hay errores: corregir todos antes de continuar; re-ejecutar hasta limpio
 5. **Test** — Ejecutar `flutter test --coverage`
    - Si tests fallan: revisar widget tree con DevTools, añadir tests faltantes
+   - **Obligatorio:** Actualizar `doc/<feature>/TEST.md` con los resultados y cobertura actualizados.
 6. **Memory Log** — Crear `doc/reports/log_report_YYYY_MM_DD.md` (tipo FEATURE, BUG, DECISION o AUDIT)
    - Un fichero por sesión/acción con nomenclatura `log_report_YYYY_MM_DD.md`
    - Si hay más de 10 ficheros log, archivar los antiguos en `doc/archive/` manteniendo un resumen de lecciones aprendidas.
@@ -106,6 +107,7 @@ Cargar guía detallada según contexto:
 | `templates/log_template.md` | Plantilla para log_report_YYYY_MM_DD.md |
 | `templates/spec_template.md` | Plantilla SPEC.md para features |
 | `templates/todo_template.md` | Plantilla TODO.md para features |
+| `templates/test_template.md` | Plantilla TEST.md para features |
 | `templates/feature_template.md` | Plantilla ARCHITECTURE.md para features |
 | `templates/audit_template.md` | Plantilla para reportes de auditoría |
 
@@ -161,7 +163,7 @@ Para maximizar la eficiencia y reducir el consumo de tokens, **está prohibido**
 - Registrar explícitamente en el log las Variables UI (Tokens) inyectadas en la feature que definan su identidad
 - **Mantenimiento Anti-Monstruo:** Archivar logs antiguos en `doc/archive/` si hay más de 10 ficheros.
 - **Session Handover:** Al final de cada tarea, resumir el estado en `doc/reports/log_report_YYYY_MM_DD.md` para el siguiente turno/agente.
-- Siempre actualizar SPEC.md y TODO.md de la feature
+- Always update SPEC.md, TODO.md, and TEST.md for each feature
 - Detectar plataforma para UI nativa (Material vs Cupertino)
 - Todo viene del theme: colores, tipografía, spacing
 
