@@ -225,6 +225,8 @@ Para maximizar la eficiencia y reducir el consumo de tokens, **está prohibido**
 - Always update SPEC.md, TODO.md, and TEST.md for each feature
 - Detectar plataforma para UI nativa (Material vs Cupertino)
 - Todo viene del theme: colores, tipografía, spacing
+- **Navegación:** Usar obligatoriamente `go_router` para flujos de pantalla y no usar `Navigator` tradicional de forma libre.
+- **Inyección de Dependencias:** Usar obligatoriamente `get_it` + `injectable` para resolver módulos de Data, Domain y Repositorios. No usar patrones Singleton construidos a mano.
 
 ### ❌ MUST NOT DO
 - Construir widgets helper dentro de `build()` — extraerlos como clases
