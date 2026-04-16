@@ -28,8 +28,40 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
    - Busca violaciones de Accesibilidad (WCAG): Fíjate si los Touch Targets (IconButtons) miden menos de 48px, o si algún agente rebelde ha metido el infame comando `TextScaler.noScaling` (lo cual quita lupa a la gente con deficiencia visual).
    - Busca duraciones hardcodeadas `Duration(milliseconds: 200)` en vez de usar la normativa centralizada `AppMotion`.
 
-### FASE 3.5: Documentación de Features (OBLIGATORIO)
-5. **Escanea y genera/actualiza documentación de cada feature:**
+### FASE 3.5: Auditoría Apple App Store Review Guidelines (ASRG)
+5. **Revisión de cumplimiento de las ASRG:**
+    - Obtén las guías vigentes desde: https://developer.apple.com/app-store/review/guidelines/
+    - Analiza los siguientes puntos críticos para apps que se publican en App Store:
+      - **Sección 1 - Safety:** Contenido objetable, contenido generado por usuarios, Kids Category, daño físico
+      - **Sección 2 - Performance:** Completitud de app, testing beta, metadatos precisos, compatibilidad hardware, requisitos software
+      - **Sección 2.5 - Software Requirements:** APIs públicas, APIs auto-contenidas, IPv6, WebKit, SiriKit, CallKit
+      - **Sección 3 - Business:** Pagos, suscripciones, modelos de negocio
+      - **Sección 4 - Design:** UI coherente con Apple platforms, navegación clara
+      - **Sección 5 - Legal:** Privacidad, permisos, términos de servicio
+    - Documenta en `doc/reports/asrg_audit_report_YYYY_MM_DD.md`:
+      - Fecha de la versión de las ASRG auditadas
+      - Secciones analizadas
+      - Cumplimiento detectado (Cumple/No Cumple/N.A.)
+      - Notas y observaciones
+
+### FASE 3.6: Auditoría Google Play Developer Distribution Agreement (DDA)
+6. **Revisión de cumplimiento del DDA:**
+    - Obtén el acuerdo vigente desde: https://play.google.com/intl/ALL_us/developer-distribution-agreement.html
+    - Analiza los siguientes puntos críticos para apps que se publican en Google Play:
+      - **Sección 4 - Uso de Google Play:** Verificar políticas de contenido, permisos, privacidad y soporte
+      - **Sección 5 - Autorizaciones:** Revisar derechos cedidos a Google sobre la app
+      - **Sección 8 - Product Takedowns:** Verificar mecanismos de takedown y reembolsos
+      - **Sección 11 - Representaciones y Garantías:** Comprobar cumplimiento de propiedad intelectual
+      - **Sección 14 - Indemnización:** Verificar obligaciones de indemnización
+      - **Sección 15 - Cambios al Acuerdo:** Verificar cómo se manejan cambios al DDA
+    - Documenta en `doc/reports/dda_audit_report_YYYY_MM_DD.md`:
+      - Fecha de la versión del DDA auditada
+      - Secciones analizadas
+      - Cumplimiento detectado (Cumple/No Cumple/N.A.)
+      - Notas y observaciones
+
+### FASE 3.7: Documentación de Features (OBLIGATORIO)
+7. **Escanea y genera/actualiza documentación de cada feature:**
    - Explora `lib/features/` para identificar todas las features existentes
    - Por cada feature encontrada:
      - Si NO existe `doc/<feature>/SPEC.md` → créalo usando `skills/flutter-cpac/templates/spec_template.md`
@@ -39,21 +71,68 @@ Ejecuta una auditoría táctica y arquitectónica del código del proyecto Flutt
      - Rellena TODO.md con las tareas pendientes detectadas en el código
 
 ### FASE 4: Veredicto y Persistencia
-6. **Genera AMBOS ficheros de forma simultánea (OBLIGATORIO):**
+8. **Genera CUATRO ficheros de forma simultánea (OBLIGATORIO):**
 
    **Fichero 1 — Reporte de Auditoría:** `doc/reports/audit_report_YYYY_MM_DD.md`
    - Usa la plantilla `skills/flutter-cpac/templates/audit_template.md`
    - Rellena todas las secciones con los hallazgos detectados
 
-   **Fichero 2 — Log de la sesión:** `doc/reports/log_report_YYYY_MM_DD.md`
+   **Fichero 2 — Reporte ASRG:** `doc/reports/asrg_audit_report_YYYY_MM_DD.md`
+   - Formato:
+     ```
+     # Apple App Store Review Guidelines Audit Report
+     - **Fecha de auditoría:** YYYY-MM-DD
+     - **URL auditada:** https://developer.apple.com/app-store/review/guidelines/
+     
+     ## Análisis de Secciones
+     
+     | Sección | Descripción | Cumplimiento | Notas |
+     |---------|-------------|--------------|-------|
+     | 1. Safety | Contenido objetable, UGC, Kids, Daño físico | Cumple/No Cumple/N.A. | ... |
+     | 2. Performance | Completitud, Beta, Metadatos, Hardware | Cumple/No Cumple/N.A. | ... |
+     | 2.5 Software Requirements | APIs públicas, IPv6, WebKit, SiriKit | Cumple/No Cumple/N.A. | ... |
+     | 3. Business | Pagos, Suscripciones, Modelos negocio | Cumple/No Cumple/N.A. | ... |
+     | 4. Design | UI Apple, HIG compliance | Cumple/No Cumple/N.A. | ... |
+     | 5. Legal | Privacidad, Permisos, Términos | Cumple/No Cumple/N.A. | ... |
+     
+     ## Resumen Ejecutivo
+     [Breve resumen del cumplimiento de ASRG]
+     ```
+
+   **Fichero 3 — Reporte DDA:** `doc/reports/dda_audit_report_YYYY_MM_DD.md`
+   - Formato:
+     ```
+     # Google Play DDA Audit Report
+     - **Fecha de auditoría:** YYYY-MM-DD
+     - **Versión del DDA:** Effective as of [FECHA]
+     - **URL auditada:** https://play.google.com/intl/ALL_us/developer-distribution-agreement.html
+     
+     ## Análisis de Secciones
+     
+     | Sección | Descripción | Cumplimiento | Notas |
+     |---------|-------------|--------------|-------|
+     | 4. Uso de Google Play | Políticas de contenido, permisos, privacidad | Cumple/No Cumple/N.A. | ... |
+     | 5. Autorizaciones | Derechos cedidos a Google | Cumple/No Cumple/N.A. | ... |
+     | 8. Product Takedowns | Mecanismos de takedown y reembolsos | Cumple/No Cumple/N.A. | ... |
+     | 11. Representaciones y Garantías | Propiedad intelectual | Cumple/No Cumple/N.A. | ... |
+     | 14. Indemnización | Obligaciones de indemnización | Cumple/No Cumple/N.A. | ... |
+     | 15. Cambios al Acuerdo | Manejo de cambios al DDA | Cumple/No Cumple/N.A. | ... |
+     
+     ## Resumen Ejecutivo
+     [Breve resumen del cumplimiento del DDA]
+     ```
+
+   **Fichero 4 — Log de la sesión:** `doc/reports/log_report_YYYY_MM_DD.md`
    - Usa la plantilla `skills/flutter-cpac/templates/log_template.md`
    - Añade entrada de tipo **AUDIT** con:
      - **Acción:** AUDIT
      - **Título:** Auditoría del proyecto - YYYY-MM-DD
-     - **Descripción:** Resumen breve del alcance
+     - **Descripción:** Resumen breve del alcance (incluye auditoría DDA y ASRG)
      - **Hallazgos principales:** 3-5 problemas más relevantes
      - **Reporte completo:** Ruta a `doc/reports/audit_report_YYYY_MM_DD.md`
+     - **ASRG Report:** Ruta a `doc/reports/asrg_audit_report_YYYY_MM_DD.md`
+     - **DDA Report:** Ruta a `doc/reports/dda_audit_report_YYYY_MM_DD.md`
 
-7. **Resumen en Chat:** Muestra un resumen ejecutivo de los 3 puntos más urgentes detectados.
+9. **Resumen en Chat:** Muestra un resumen ejecutivo de los 3 puntos más urgentes detectados (incluyendo cualquier issue de DDA o ASRG).
 
-8. **PREGUNTA al programador** si desea que un agente ejecute un bloque de refactorización "Auto-Fix" (limpiando spacing, inyectando constants, arreglando imports...) sobre todos los hallazgos.
+10. **PREGUNTA al programador** si desea que un agente ejecute un bloque de refactorización "Auto-Fix" (limpiando spacing, inyectando constants, arreglando imports...) sobre todos los hallazgos.
