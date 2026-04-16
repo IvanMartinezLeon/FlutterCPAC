@@ -1,6 +1,6 @@
 # Flutter_CPAC
 
-**Flutter_CPAC** es un sistema automatizado para crear, configurar y auditar proyectos Flutter listos para la pre-producción. Utiliza contratos rígidos basados en Markdown para asegurar que cualquier agente de IA aplique Clean Architecture, inyecte Tokens de diseño estéticos y siga normativas de accesibilidad WCAG.
+**Flutter_CPAC** es un sistema automatizado para crear, configurar, auditar y testear proyectos Flutter listos para la pre-producción. Utiliza contratos rígidos basados en Markdown para asegurar que cualquier agente de IA aplique Clean Architecture, inyecte Tokens de diseño estéticos, siga normativas de accesibilidad WCAG y cumpla con las guías de publicación de stores (Google Play DDA + Apple ASRG).
 
 ### 🤖 Agentes IA y Editores Soportados
 
@@ -11,30 +11,29 @@ Al ser un framework basado puramente en conocimiento Markdown y Scripts Bash, **
 
 ---
 
-## 📦 Instalación Global (En cualquier IA)
+## 📁 Estructura
 
-```bash
-# Permite a tu Agente AI o IDE aprender sobre el contrato CPAC:
-npx skills add IvanMartinezLeon/FlutterCPAC@flutter-cpac -g
+```
+FlutterCPAC/
+├── commands/          # Comandos ejecutables por agentes (auditar, crear, test...)
+├── skills/           # Skill principal flutter-cpac con referencias completas
+│   └── flutter-cpac/
+│       ├── references/  # Guías técnicas (arquitectura, UI, testing...)
+│       ├── templates/   # Plantillas (SPEC, TODO, TEST, LOG...)
+│       ├── scripts/     # Bash scripts automatización
+│       └── examples/    # Ejemplos de código
+└── readme.md         # Este archivo
 ```
 
-| Tipo de instalación | Directorio destino | Caso de uso |
-|-------------|-----------|---------------|
-| Global (`-g`) | `~/.agents/skills/` | Quieres usar CPAC como tu estándar general en todos tus proyectos. |
-| Por proyecto | `./.agents/skills/` | Reglas estrictas aplicadas al equipo de un único repositorio local. |
+---
 
-## 🚀 Crear un proyecto Flutter
+## 🚀 Comandos Disponibles
 
-Una vez tengas alojada la Skill (o simplemente abriendo la carpeta de este repositorio en el IDE), escribe a la IA en el chat:
-
-> ```
-> /crear-flutter
-> ```
-
-A continuación, la inteligencia empezará la cadena para inyectar un ecosistema con:
-- Arquitectura Clean / BloC base automatizada.
-- Internacionalización con `AppLocalizations` (ES/EN) + `DotEnv` multi-entorno.
-- **¡NUEVO!** Preguntará por el "Sector de la app" (ej: *Banca, Retail, Clínicas...*) y formulará un `MASTER_THEME.md` generándote paletas y **Variables de UI** (Tokens) específicas para tu contexto.
+| Comando | Descripción |
+|---------|-------------|
+| `/crear-flutter` | Crea proyecto Flutter con arquitectura CPAC + MASTER_THEME |
+| `/auditar-flutter` | Auditoría completa: arquitectura, UI, DDA (Google Play), ASRG (Apple) |
+| `/test-flutter` | Ejecuta tests y genera reportes con evidencias |
 
 ---
 
@@ -47,123 +46,110 @@ Si aplicaste la arquitectura hace semanas y quieres pasar un control de calidad 
 > ```
 
 La inteligencia artificial auditará las carpetas escaneando el código en busca de: 
-- Violaciones de arquitectura funcional (Ej: Dependencias cruzadas prohibidas).
-- Vulneraciones estéticas (Ej: Colores o Sizes *hardcoded* en vez de usar los de `AppSpacing`).
-- Peligros de Inaccesibilidad (Touch Targets diminutos o textos fijos en vez de flexibles).
+- **Arquitectura:** Violaciones de Clean Architecture (dependencias cruzadas, imports prohibidos)
+- **UI:** Colores/Spacing hardcoded vs tokens de `AppSpacing`, Touch Targets <48px, `TextScaler.noScaling`
+- **Accesibilidad:** WCAG 2.2, motion, legibilidad
+- **Google Play DDA:** Políticas de contenido, permisos, privacidad, takedowns, garantías
+- **Apple ASRG:** Safety, Performance, Software Requirements, Business, Design, Legal
 
-> [!IMPORTANT]
-> Los reportes de auditoría se guardan automáticamente en `doc/reports/audit_report_YYYY_MM_DD.md` para mantener un historial de salud del proyecto.
+**Reportes generados:**
+- `doc/reports/audit_report_YYYY_MM_DD.md` — Auditoría técnica CPAC
+- `doc/reports/dda_audit_report_YYYY_MM_DD.md` — Cumplimiento Google Play DDA
+- `doc/reports/asrg_audit_report_YYYY_MM_DD.md` — Cumplimiento Apple ASRG
 
 ---
 
-## Cómo decirle a la IA que cree un proyecto
+## 🧪 Testear un Proyecto
 
-Una vez instalado el skill, primero clona el repositorio y luego pídele a la IA:
+Ejecuta suite completa de tests con análisis de resultados:
+
+> ```
+> /test-flutter
+> ```
+
+La IA ejecutará:
+- `flutter test --reporter expanded` — Suite completa
+- `flutter test --coverage` — Análisis de cobertura
+- Tests por tipo: Unit, Widget, Bloc, Integration, Golden
+
+**Reportes generados:**
+- `doc/reports/test_report_YYYY_MM_DD.md` — Métricas y cobertura
+- `doc/reports/test_evidence_YYYY_MM_DD.md` — Evidencias de fallos
+
+---
+
+## 📦 Instalación
+
+### Opción 1: Como Skill (Recomendado)
 
 ```bash
-git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git mi_proyecto
-cd mi_proyecto
+# Instalar como skill global para tu agente
+npx skills add IvanMartinezLeon/FlutterCPAC@flutter-cpac -g
+
+# O clonar directamente el repositorio
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
 ```
 
-Luego dile a la IA:
+### Opción 2: Por Proyecto (Rígido)
 
-```
-Ejecuta: bash scripts/init_project.sh
-
-Datos del proyecto:
-- Nombre: mi_app
-- Bundle ID: com.miestudio.miapp
-- Gestor de estado: Bloc/Cubit
+```bash
+# Copiar skill al proyecto específico
+mkdir -p .agents/skills
+git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git .agents/skills/flutter-cpac
 ```
 
-La IA ejecutará el script y configurará el proyecto automáticamente.
+### Configuración por Agente
 
-**Repositorio:** https://github.com/IvanMartinezLeon/FlutterCPAC
+| Agente | Configuración |
+|--------|---------------|
+| **Antigravity/OpenCode** | Elige "FlutterCPAC" como skill activo |
+| **Claude Code** | `claude code --skills flutter-cpac` |
+| **Cursor** | Settings → Skills → Añadir FlutterCPAC |
+| **VS Code + Copilot** | Renombra carpeta a `.claude` o `.cursor` |
+| **Windsurf** | Settings → Addon → FlutterCPAC |
+
+### Verificar Instalación
+
+Una vez instalado, escribe en el chat:
+
+```
+/crear-flutter
+```
+
+Deberías ver que el agente responde con el flujo de creación de proyecto.
+
+---
+
+## 🎨 Crear un Proyecto Flutter
+
+Una vez tengas alojada la Skill (o simplemente abriendo la carpeta de este repositorio en el IDE), escribe a la IA en el chat:
+
+> ```
+> /crear-flutter
+> ```
+
+La inteligencia empezará la cadena para inyectar un ecosistema con:
+- Arquitectura Clean / Bloc/Cubit base automatizada
+- Internacionalización con `AppLocalizations` (ES/EN) + `DotEnv` multi-entorno
+- MASTER_THEME.md con UI tokens y paletas específicas según el sector (Banca, Retail, Clínicas...)
 
 ---
 
 ## Características
 
 - **Theming por Sector Propulsado por IA**: Inyección al crear el proyecto de un `MASTER_THEME.md` con UI tokens y paletas de color en función de la industria dada.
+- **Auditorías de Stores**: Verificación automática de cumplimiento Google Play DDA y Apple App Store Review Guidelines
 - **Regulaciones de Motion UI y Acceso**: Curvas de animación y tiempos bloqueados (normativa M3 UX Pro).
-- **Tres entornos pre-configurados**: Debug, Profile y Release con archivos `.env` totalmente integrados en el código.
-- **Memorias Continuas IA**: Generación intrínseca de `doc/reports/log_report_YYYY_MM_DD.md` con sistema de **Session Handover** para que el siguiente agente releve la tarea con el mínimo consumo de tokens.
-- **Protocolo CEP (Eficiencia de Contexto)**: Reglas estrictas de poda de directorios (`ios/`, `android/`, `build/`) y lectura incremental para ahorrar hasta un 60% en costos de consulta.
+- **Tres entornos pre-configurados**: Debug, Profile y Release con archivos `.env` totalmente integrados.
+- **Memorias Continuas IA**: Generación intrínseca de `doc/reports/log_report_YYYY_MM_DD.md` con sistema de **Session Handover**.
+- **Protocolo CEP (Eficiencia de Contexto)**: Reglas estrictas de poda de directorios para ahorrar hasta un 60% en costos de consulta.
 - **Prompt Engineering Optimizado**: Guía de prompts quirúrgicos para creación de features, debugging y refactoring.
-- **Clean Architecture Pura**: Estructura hermética de capas con separación de la presentación, dominio y datos.
+- **Clean Architecture Pura**: Estructura hermética de capas con separación de presentación, dominio y datos.
 - **Contrato CPAC**: Exigen que antes de cada commit obligatoriamente se pase un `flutter analyze`.
 
 ---
 
-## Uso
-
-### Con script automático
-
-```bash
-# Clonar el repositorio
-git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git
-
-cd FlutterCPAC
-```
-
-El script tiene **dos modos**:
-
-```bash
-# MODO SIMPLE: Solo crea estructura (sin IA)
-bash scripts/init_project.sh --simple
-
-# MODO CON IA: Crea proyecto + guía para configurar con IA
-bash scripts/init_project.sh --with-ai
-
-# MODO INTERACTIVO: Pregunta qué hacer (default)
-bash scripts/init_project.sh
-```
-
-El script automáticamente:
-1. Crea el proyecto Flutter
-2. Configura los tres entornos (.env)
-3. Configura i18n (ES/EN)
-4. Crea `doc/reports/log_report_YYYY_MM_DD.md`
-5. Instala dependencias
-6. Ejecuta `flutter analyze`
-
-### Con agente de IA (manual)
-
-1. Descarga el repositorio
-2. Abre `createproject.md` con tu agente de IA
-3. Proporciona los datos del proyecto
-4. El agente ejecutará el FlutterCPAC completo
-
-El agente seguirá automáticamente el FlutterCPAC creando:
-- Estructura de proyecto Flutter
-- Tres archivos `.env` (debug, profile, release)
-- Internacionalización (ES/EN)
-- Documentación del proyecto
-- `doc/reports/log_report_YYYY_MM_DD.md` actualizado
-
-### Con agente de IA (recomendado)
-
-Para que tu IA ejecute el script automáticamente, usa este prompt:
-
-```
-"Ejecuta el script init_project.sh desde este repositorio:
-https://github.com/IvanMartinezLeon/FlutterCPAC
-
-Usa estos datos cuando te pida:
-- App: [tu_nombre_de_app]
-- Bundle: [tu_bundle_id]
-- State: 2 (Bloc/Cubit)"
-
-Después verifica que flutter analyze no dé errores.
-```
-
-O ejecutar directamente desde una shell limpia en Bash:
-
-```bash
-git clone https://github.com/IvanMartinezLeon/FlutterCPAC.git && cd FlutterCPAC && bash scripts/init_project.sh
-```
-
-### 4. Comandos útiles del proyecto generado
+## Comandos útiles del proyecto
 
 ```bash
 # Verificar entorno
@@ -213,9 +199,10 @@ lib/
 | Archivo | Propósito |
 |---------|-----------|
 | `doc/reports/log_report_YYYY_MM_DD.md` | Decisiones, errores y aprendizajes unificados (un fichero por sesión/acción) |
-| `doc/reports/` | Historial de reportes de cumplimiento y calidad (auditorías + logs) |
+| `doc/reports/` | Historial de reportes de auditoría, tests y logs |
 | `doc/<feature>/SPEC.md` | Especificación de funcionalidad (SDD) |
 | `doc/<feature>/TODO.md` | Checklist de estado de la funcionalidad |
+| `doc/<feature>/TEST.md` | Resultados de tests y cobertura |
 
 ---
 
@@ -231,17 +218,8 @@ flutter analyze && dart format .
 
 ---
 
-## Skills del Agente
-
-| Skill | Descripción |
-|-------|-------------|
-| `flutter_expert` | Arquitectura CPAC, Clean Architecture, SDD, documentación automática |
-| `ui_expert` | Material Design 3, Cupertino, widgets adaptativos |
-| `prompt_expert` | Guía de eficiencia CEP y prompts quirúrguicos para ahorrar tokens |
-
----
-
 ## Más Información
 
-- Documentación completa: [createproject.md](./createproject.md)
+- Documentación completa: [skills/flutter-cpac/SKILL.md](./skills/flutter-cpac/SKILL.md)
+- Workflow de creación: [commands/crear-flutter.md](./commands/crear-flutter.md)
 - Repositorio: https://github.com/IvanMartinezLeon/FlutterCPAC
