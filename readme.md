@@ -1,5 +1,11 @@
 # Flutter_CPAC
 
+[![Flutter](https://img.shields.io/badge/Flutter-3.24-blue?logo=flutter)](https://flutter.dev)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Dart](https://img.shields.io/badge/Dart-3.5-blue?logo=dart)](https://dart.dev)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
+[![Pipeline Status](https://img.shields.io/github/actions/workflow/status/IvanMartinezLeon/FlutterCPAC/flutter-ci.yml?branch=main&label=CI)](https://github.com/IvanMartinezLeon/FlutterCPAC/actions)
+
 **Flutter_CPAC** es un sistema automatizado para crear, configurar, auditar y testear proyectos Flutter listos para la pre-producción. Utiliza contratos rígidos basados en Markdown para asegurar que cualquier agente de IA aplique Clean Architecture, inyecte Tokens de diseño estéticos, siga normativas de accesibilidad WCAG y cumpla con las guías de publicación de stores (Google Play DDA + Apple ASRG).
 
 ### 🤖 Agentes IA y Editores Soportados

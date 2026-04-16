@@ -27,16 +27,43 @@ Esto te dará acceso a:
 
 ---
 
+## 🚀 Comandos Disponibles
+
+Usa estos comandos para ejecutar flujos completos:
+
+| Comando | Descripción | Fichero |
+|---------|-------------|---------|
+| `/crear-flutter` | Crear proyecto con arquitectura CPAC | `commands/crear-flutter.md` |
+| `/auditar-flutter` | Auditoría completa (CPAC + DDA + ASRG) | `commands/auditar-flutter.md` |
+| `/test-flutter` | Ejecutar tests con reportes | `commands/test-flutter.md` |
+
+### Flujo Típico
+
+1. **Crear:** `/crear-flutter` → Genera proyecto base
+2. **Desarrollar:** Implementar features siguiendo Core Workflow
+3. **Testear:** `/test-flutter` → Verificar cobertura
+4. **Auditar:** `/auditar-flutter` → Validar antes de release
+5. **Log:** Crear `doc/reports/log_report_YYYY_MM_DD.md` tras cada acción
+
+### Scripts Disponibles
+
+| Script | Descripción |
+|--------|-------------|
+| `scripts/init_project.sh` | Inicialización de proyecto Flutter |
+| `scripts/run_tests.sh` | Ejecutar tests con cobertura |
+| `scripts/changelog.sh` | Generar CHANGELOG.md desde logs |
+
+---
+
 ## 🚀 Crear un Proyecto Flutter
 
-Cuando el usuario pida crear una aplicación Flutter, **debes seguir** `skills/flutter-cpac/references/createproject.md`.
+Cuando el usuario pida crear una aplicación Flutter, **debes seguir** `commands/crear-flutter.md`.
 
 El proceso es:
-1. Leer `skills/flutter-cpac/references/createproject.md` completo
+1. Leer `commands/crear-flutter.md` completo
 2. Solicitar al usuario los datos: nombre de app, bundle ID, gestor de estado
 3. Ejecutar el workflow descrito en el documento
 4. Verificar con `flutter analyze` que no haya errores
-- `references/` - Material de deep-dive por tema
 
 ---
 
@@ -96,7 +123,22 @@ Cargar guía detallada según contexto:
 
 | Script | Descripción | Uso |
 |--------|-------------|-----|
-| `scripts/init_project.sh` | Inicialización de proyecto Flutter con estructura CPAC | `./scripts/init_project.sh` (interactivo) o `--simple` / `--with-ai` |
+| `scripts/init_project.sh` | Inicialización de proyecto Flutter con estructura CPAC | `./scripts/init_project.sh --simple` / `--with-ai` |
+| `scripts/run_tests.sh` | Ejecutar tests con cobertura y generar reportes | `./scripts/run_tests.sh` |
+| `scripts/changelog.sh` | Generar CHANGELOG.md desde doc/reports | `./scripts/changelog.sh [version]` |
+
+## Templates
+
+| Template | Descripción |
+|----------|-------------|
+| `templates/log_template.md` | Plantilla para log_report_YYYY_MM_DD.md |
+| `templates/spec_template.md` | Plantilla SPEC.md para features |
+| `templates/todo_template.md` | Plantilla TODO.md para features |
+| `templates/test_template.md` | Plantilla TEST.md para features |
+| `templates/feature_template.md` | Plantilla ARCHITECTURE.md para features |
+| `templates/audit_template.md` | Plantilla para reportes de auditoría CPAC |
+| `templates/dda_template.md` | Plantilla para reportes Google Play DDA |
+| `templates/asrg_template.md` | Plantilla para reportes Apple ASRG |
 
 ---
 
