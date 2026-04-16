@@ -144,8 +144,8 @@ run-android: ## Ejecuta app en Android emulator
 # Doc
 #-------------------------------------------------------------------------------
 doc-serve: ## Sirve documentación local
-	@echo "$(BLUE)📚 Abriendo docs/wiki...$(NC)"
-	@open docs/wiki/
+	@echo "$(BLUE)📚 Abriendo .docs/wiki...$(NC)"
+	@open .docs/wiki/
 
 #-------------------------------------------------------------------------------
 # Git

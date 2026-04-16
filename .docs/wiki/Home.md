@@ -36,7 +36,7 @@ flutter analyze
 ## 📁 Estructura de la Wiki
 
 ```
-docs/wiki/
+.docs/wiki/
 ├── Home.md           # Este archivo
 ├── Arquitectura.md   # Clean Architecture CPAC
 ├── Commands.md       # Comandos disponibles

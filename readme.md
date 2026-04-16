@@ -24,15 +24,17 @@ Al ser un framework basado puramente en conocimiento Markdown y Scripts Bash, **
 ```
 FlutterCPAC/
 ├── commands/              # Comandos ejecutables (/crear, /auditar, /test...)
-├── docs/wiki/             # Wiki del proyecto
-├── skills/flutter-cpac/    # Skill principal
-│   ├── references/        # Guías técnicas (arquitectura, UI, testing...)
-│   ├── templates/         # Plantillas (SPEC, TODO, TEST, DDA, ASRG...)
-│   ├── scripts/           # Bash scripts automatización
-│   └── examples/          # Ejemplos de código
-├── Makefile               # Atajos de comandos
-├── .gitignore             # Optimizado para FlutterCPAC
-└── readme.md              # Este archivo
+├── .docs/wiki/            # Wiki del proyecto
+├── skills/flutter-cpac/  # Skill principal
+│   ├── references/       # Guías técnicas + deprecated-apis.md
+│   ├── templates/        # Plantillas (SPEC, TODO, TEST, DDA, ASRG...)
+│   ├── scripts/          # Bash scripts automatización
+│   └── examples/         # Ejemplos de código
+├── Makefile              # Atajos de comandos
+├── .gitignore            # Optimizado para FlutterCPAC
+├── .editorconfig         # Estándares de formato (Dart, MD, YAML...)
+├── CHANGELOG.md          # Historial de cambios
+└── readme.md             # Este archivo
 ```
 
 ---
@@ -217,7 +219,7 @@ make build-all     # Todas las plataformas
 
 | Tipo | Ubicación |
 |------|-----------|
-| Wiki | `docs/wiki/` |
+| Wiki | `.docs/wiki/` |
 | SKILL | `skills/flutter-cpac/SKILL.md` |
 | Comandos | `commands/` |
 | Templates | `skills/flutter-cpac/templates/` |
@@ -253,14 +255,14 @@ flutter analyze && dart format .
 
 ## 🌐 Wiki
 
-Documentación extendida disponible en `docs/wiki/`:
-- [Home](docs/wiki/Home.md)
-- [Arquitectura](docs/wiki/Arquitectura.md)
-- [Commands](docs/wiki/Commands.md)
-- [Templates](docs/wiki/Templates.md)
-- [Scripts](docs/wiki/Scripts.md)
-- [QA Checklist](docs/wiki/QA-Checklist.md)
-- [FAQ](docs/wiki/FAQ.md)
+Documentación extendida disponible en `.docs/wiki/`:
+- [Home](.docs/wiki/Home.md)
+- [Arquitectura](.docs/wiki/Arquitectura.md)
+- [Commands](.docs/wiki/Commands.md)
+- [Templates](.docs/wiki/Templates.md)
+- [Scripts](.docs/wiki/Scripts.md)
+- [QA Checklist](.docs/wiki/QA-Checklist.md)
+- [FAQ](.docs/wiki/FAQ.md)
 
 ---
 

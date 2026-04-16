@@ -24,8 +24,8 @@ assets/env/
 
 # Documentación generada automáticamente
 #--------------------------------------
-doc/reports/*.md
-doc/archive/
+.docs/reports/*.md
+.docs/archive/
 coverage/
 *.lcov
 
