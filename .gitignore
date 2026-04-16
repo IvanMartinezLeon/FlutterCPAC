@@ -1,0 +1,105 @@
+#===============================================================================
+# FlutterCPAC - .gitignore
+# Optimizado para proyectos Flutter con arquitectura CPAC
+#===============================================================================
+
+# Flutter/Dart
+#-------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins.lock
+.dart_tool/
+
+# Archivos de entorno (NUNCA subir)
+#---------------------------------
+.env
+.env.*
+!.env.example
+assets/env/
+
+# Documentación generada automáticamente
+#--------------------------------------
+doc/reports/*.md
+doc/archive/
+coverage/
+*.lcov
+
+# IDEs
+#----
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo
+*~
+
+# macOS
+#----
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Logs
+#----
+*.log
+logs/
+
+# Sistema
+#------
+Thumbs.db
+.DS_Store
+*.bak
+*.tmp
+
+# Tests (generados)
+#-----------------
+test/.test_coverage.dart
+
+# iOS/Android (compartido, no tocar)
+#-----------------------------------
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/App.framework
+ios/Flutter/app.flx
+ios/Flutter/app.zip
+ios/Flutter/flutter_assets/
+ios/ServiceDefinitions.json
+
+android/.gradle/
+android/app/build/
+android/build/
+android/gradle/
+android/gradlew
+android/gradlew.bat
+
+macos/Flutter/Flutter.framework
+macos/Flutter/Flutter.podspec
+macos/Flutter/App.framework
+macos/.symlinks/
+
+# Windows
+#-------
+*.user
+*.userosscache
+*.sln.docstates
+
+# Linux
+#-----
+.directory
+*~
+
+# Notarization (EU alternative distribution)
+#-----------------------------------------
+*.dylib
+*.jside
+*.xarchive

@@ -36,14 +36,20 @@ Usa estos comandos para ejecutar flujos completos:
 | `/crear-flutter` | Crear proyecto con arquitectura CPAC | `commands/crear-flutter.md` |
 | `/auditar-flutter` | Auditoría completa (CPAC + DDA + ASRG) | `commands/auditar-flutter.md` |
 | `/test-flutter` | Ejecutar tests con reportes | `commands/test-flutter.md` |
+| `/refactor-flutter` | Refactorización deuda técnica | `commands/refactor-flutter.md` |
+| `/migrate-flutter` | Migración Flutter/Dart/paquetes | `commands/migrate-flutter.md` |
+| `/deploy-flutter` | Build y deploy a stores | `commands/deploy-flutter.md` |
 
 ### Flujo Típico
 
-1. **Crear:** `/crear-flutter` → Genera proyecto base
-2. **Desarrollar:** Implementar features siguiendo Core Workflow
-3. **Testear:** `/test-flutter` → Verificar cobertura
-4. **Auditar:** `/auditar-flutter` → Validar antes de release
-5. **Log:** Crear `doc/reports/log_report_YYYY_MM_DD.md` tras cada acción
+```
+/crear-flutter → /test-flutter → /refactor-flutter → /auditar-flutter → /deploy-flutter
+     │               │                 │                  │
+     │               │                 │                  └── Log
+     │               │                 └── Log
+     │               └── Log
+     └── Log
+```
 
 ### Scripts Disponibles
 
@@ -52,6 +58,17 @@ Usa estos comandos para ejecutar flujos completos:
 | `scripts/init_project.sh` | Inicialización de proyecto Flutter |
 | `scripts/run_tests.sh` | Ejecutar tests con cobertura |
 | `scripts/changelog.sh` | Generar CHANGELOG.md desde logs |
+
+### Makefile
+
+En proyectos generados, usa `make` para atajos rápidos:
+
+```bash
+make qa         # format + analyze
+make test-cov   # tests con cobertura
+make build-aab  # build Android
+make deploy     # checklist deploy
+```
 
 ---
 
